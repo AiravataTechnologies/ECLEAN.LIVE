@@ -23,65 +23,110 @@ export default function Business() {
     { title: "Quality Assurance", completed: 0, target: 92 },
     { title: "Client Satisfaction", completed: 0, target: 88 },
   ]);
-  const [textVisible, setTextVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef(null);
+  const animationRef = useRef(null);
 
+  // Optimized visibility check using getBoundingClientRect
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            
-            // Text animation trigger
-            const textTimer = setTimeout(() => {
-              setTextVisible(true);
-            }, 500);
+    const checkVisibility = () => {
+      if (!sectionRef.current || hasAnimated) return;
 
-            // Progress bar animation
-            const progressTimer = setTimeout(() => {
-              const interval = setInterval(() => {
-                setAnimatedProgress(prev => 
-                  prev.map(item => ({
-                    ...item,
-                    completed: item.completed < item.target 
-                      ? Math.min(item.completed + 2, item.target)
-                      : item.target
-                  }))
-                );
-              }, 50);
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
 
-              const stopTimer = setTimeout(() => {
-                clearInterval(interval);
-              }, 3000);
-
-              return () => clearTimeout(stopTimer);
-            }, 1000);
-
-            return () => {
-              clearTimeout(textTimer);
-              clearTimeout(progressTimer);
-            };
-          }
-        });
-      },
-      {
-        threshold: 0.3, // Trigger when 30% of the section is visible
-        rootMargin: '0px 0px -10% 0px' // Adjust trigger point
+      // Element is visible when top is within viewport (more responsive)
+      if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
+        setIsVisible(true);
+        setHasAnimated(true);
       }
-    );
+    };
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    // Check immediately on mount
+    checkVisibility();
+
+    // Throttled scroll listener for better performance
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          checkVisibility();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    // Also check on resize
+    const handleResize = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          checkVisibility();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
       }
     };
   }, [hasAnimated]);
+
+  // Trigger animations when visible
+  useEffect(() => {
+    if (!isVisible) return;
+
+    // Start progress animation immediately when visible
+    const startTime = Date.now();
+    const duration = 2000; // 2 seconds for smooth animation
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Smooth easing function
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+
+      setAnimatedProgress(prev =>
+        prev.map(item => ({
+          ...item,
+          completed: Math.round(item.target * easeOut)
+        }))
+      );
+
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(animate);
+      } else {
+        // Ensure final values are exact
+        setAnimatedProgress(prev =>
+          prev.map(item => ({
+            ...item,
+            completed: item.target
+          }))
+        );
+      }
+    };
+
+    // Small delay to let text animations start first
+    setTimeout(() => {
+      animationRef.current = requestAnimationFrame(animate);
+    }, 300);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isVisible]);
 
   return (
     <section ref={sectionRef} className="business-sec sec-ptb bg-light-greem">
@@ -89,32 +134,32 @@ export default function Business() {
         <div className="row">
           <div className="col-lg-6">
             <div className="sec-content h-100 d-flex justify-content-center flex-column">
-              <h6 
-                className={`sec-sub-title ${textVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-                style={{ animationDelay: '0.2s' }}
+              <h6
+                className={`sec-sub-title ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                style={{ animationDelay: '0.1s' }}
               >
                 Smart Solutions
               </h6>
-              <h2 
-                className={`sec-title ${textVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-                style={{ animationDelay: '0.4s' }}
+              <h2
+                className={`sec-title ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                style={{ animationDelay: '0.2s' }}
               >
                 Transform Your Cleaning Operations with AI-Powered Intelligence
               </h2>
-              <p 
-                className={`sec-text ${textVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-                style={{ animationDelay: '0.6s' }}
+              <p
+                className={`sec-text ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                style={{ animationDelay: '0.3s' }}
               >
-                Revolutionize hygiene and facility management through our next-generation 
-                AI-based SaaS platform. Streamline operations, enhance transparency, and 
+                Revolutionize hygiene and facility management through our next-generation
+                AI-based SaaS platform. Streamline operations, enhance transparency, and
                 deliver real-time intelligence across both public and private sector ecosystems.
               </p>
               {/* progressbar part start */}
               {animatedProgress?.map((item, i) => (
-                <div 
-                  key={i} 
-                  className={`ab-progress ${textVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-                  style={{ animationDelay: `${0.8 + (i * 0.2)}s` }}
+                <div
+                  key={i}
+                  className={`ab-progress ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  style={{ animationDelay: `${0.4 + (i * 0.1)}s` }}
                 >
                   <h2 className="progress-title">{item.title}</h2>
                   <ProgressBar
@@ -133,10 +178,10 @@ export default function Business() {
           </div>
           <div className="col-lg-6 tab-col-gap">
             <div
-              className={`sec-images wow fadeInRight ${textVisible ? 'animate-fade-in-right' : 'opacity-0'}`}
+              className={`sec-images wow fadeInRight ${isVisible ? 'animate-fade-in-right' : 'opacity-0'}`}
               data-wow-delay="500ms"
               data-wow-duration="1500ms"
-              style={{ animationDelay: '0.3s' }}
+              style={{ animationDelay: '0.2s' }}
             >
               <div className="sec-img-one h-100">
                 <DotLottieReact
@@ -158,18 +203,18 @@ export default function Business() {
           </div>
         </div>
       </div>
-      
+
       <style jsx>{`
         .opacity-0 {
           opacity: 0;
         }
         
         .animate-fade-in-up {
-          animation: fadeInUp 0.8s ease-out forwards;
+          animation: fadeInUp 0.6s ease-out forwards;
         }
         
         .animate-fade-in-right {
-          animation: fadeInRight 1s ease-out forwards;
+          animation: fadeInRight 0.8s ease-out forwards;
         }
         
         @keyframes fadeInUp {
