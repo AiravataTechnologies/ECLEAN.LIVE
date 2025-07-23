@@ -110,7 +110,9 @@ export default function AICleaningPlatform() {
               position: 'relative',
               display: 'flex',
               justifyContent: isMobile ? 'center' : 'flex-start',
-              height: isMobile ? 'auto' : '600px'
+              height: isMobile ? 'auto' : '600px',
+              minHeight: isMobile ? '500px' : '600px',
+              overflow: 'visible'
             }}>
               {/* Main Phone */}
               <div className="main-phone" style={{
@@ -118,15 +120,17 @@ export default function AICleaningPlatform() {
                 borderRadius: '3rem',
                 padding: '16px',
                 boxShadow: '0 25px 60px rgba(0, 0, 0, 0.3)',
-                transform: 'rotate(-2deg)',
+                transform: isMobile ? 'rotate(0deg)' : 'rotate(-2deg)',
                 transition: 'transform 0.5s ease',
                 position: 'relative',
                 zIndex: 20,
                 marginLeft: isMobile ? '0' : '20px',
-                width: isMobile ? '280px' : 'auto'
+                width: isMobile ? '280px' : 'auto',
+                alignSelf: isMobile ? 'center' : 'flex-start',
+                flexShrink: 0
               }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(-2deg)'}
+                onMouseEnter={(e) => !isMobile && (e.currentTarget.style.transform = 'rotate(0deg)')}
+                onMouseLeave={(e) => !isMobile && (e.currentTarget.style.transform = 'rotate(-2deg)')}
               >
                 <div style={{
                   background: 'white',
@@ -555,8 +559,16 @@ export default function AICleaningPlatform() {
             padding: 80px 0 !important;
           }
           
+          .responsive-mockups {
+            min-height: 500px !important;
+            overflow: visible !important;
+          }
+          
           .main-phone {
             transform: rotate(0deg) !important;
+            position: relative !important;
+            z-index: 1 !important;
+            margin: 0 auto !important;
           }
           
           .main-phone:hover {

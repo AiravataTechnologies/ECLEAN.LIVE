@@ -1,3 +1,4 @@
+// Service.js - Mobile Responsive Version
 import { Link } from "react-router-dom";
 import { services_2 } from "../../../data/site";
 import Media3Video from "../../../assets/videos/Media3.mp4";
@@ -126,7 +127,96 @@ export default function Service() {
           margin-top: 20px !important;
         }
 
-        @media (max-width: 768px) {
+        .sec-content {
+          padding: 0 10px !important;
+        }
+
+        .sec-title {
+          font-size: 2.5rem !important;
+          line-height: 1.2 !important;
+        }
+
+        .sec-text {
+          font-size: 1rem !important;
+          line-height: 1.6 !important;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 576px) {
+          .service-sec {
+            padding: 40px 0 !important;
+          }
+
+          .sec-content {
+            padding: 0 15px !important;
+            text-align: center !important;
+          }
+
+          .sec-title {
+            font-size: 1.8rem !important;
+            margin-bottom: 15px !important;
+          }
+
+          .sec-sub-title {
+            font-size: 0.9rem !important;
+            margin-bottom: 10px !important;
+          }
+
+          .sec-text {
+            font-size: 0.9rem !important;
+            margin-bottom: 20px !important;
+            line-height: 1.5 !important;
+          }
+
+          .video-container {
+            max-width: 100% !important;
+            margin-top: 25px !important;
+            border-radius: 12px !important;
+          }
+
+          .video-player {
+            border-radius: 12px !important;
+          }
+          
+          .services-grid {
+            grid-template-columns: 1fr !important;
+            gap: 15px !important;
+            margin-top: 15px !important;
+          }
+          
+          .service-card {
+            padding: 15px !important;
+            height: auto !important;
+            min-height: 250px !important;
+          }
+
+          .service-card h4 {
+            font-size: 16px !important;
+            margin-bottom: 6px !important;
+          }
+
+          .service-card p {
+            font-size: 12px !important;
+            -webkit-line-clamp: 2 !important;
+          }
+          
+          .service-image-container {
+            height: 90px !important;
+            margin-bottom: 12px !important;
+          }
+
+          .thm-btn {
+            padding: 12px 20px !important;
+            font-size: 0.9rem !important;
+          }
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 577px) and (max-width: 768px) {
+          .sec-title {
+            font-size: 2.2rem !important;
+          }
+
           .video-container {
             max-width: 100% !important;
             margin-top: 30px !important;
@@ -138,18 +228,39 @@ export default function Service() {
           }
           
           .service-card {
-            padding: 15px !important;
-            height: 280px !important;
+            padding: 18px !important;
+            height: 300px !important;
           }
           
           .service-image-container {
-            height: 100px !important;
+            height: 110px !important;
           }
         }
 
-        @media (max-width: 992px) {
+        /* Medium Tablet Styles */
+        @media (min-width: 769px) and (max-width: 992px) {
           .services-grid {
             grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px !important;
+          }
+
+          .service-card {
+            height: 310px !important;
+          }
+        }
+
+        /* Large Tablet/Small Desktop */
+        @media (min-width: 993px) and (max-width: 1200px) {
+          .services-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 20px !important;
+          }
+        }
+
+        /* Touch device hover adjustments */
+        @media (hover: none) {
+          .service-card:hover {
+            transform: none !important;
           }
         }
       `}</style>
@@ -177,10 +288,10 @@ export default function Service() {
                   <span className="txt">Explore Features</span>
                 </Link>
               </div>
-              
+
               {/* Video Section */}
               <div className="video-container">
-                <video 
+                <video
                   className="video-player"
                   controls
                   autoPlay
@@ -224,3 +335,5 @@ export default function Service() {
     </section>
   );
 }
+
+// ServiceStyle2.js - Mobile Responsive Version

@@ -109,11 +109,11 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          
+
           {/* Three Action Buttons Section */}
           <div className="row mt-5 pt-4">
             <div className="col-12">
-              <style jsx>{`
+              <style>{`
                 .hero-action-buttons {
                   gap: 2rem;
                 }
@@ -218,26 +218,26 @@ export default function Hero() {
                   }
                 }
               `}</style>
-              
+
               <div className="hero-action-buttons d-flex justify-content-center align-items-center flex-wrap">
                 {/* Sign up for 14-day free trial */}
-                <Link 
-                  to="/signup" 
+                <Link
+                  to="/signup"
                   className="action-btn action-btn-1"
                 >
                   Sign up for a 14-day free trial
                 </Link>
 
                 {/* Download Brochure */}
-                <Link 
-                  to="/brochure" 
+                <Link
+                  to="/brochure"
                   className="action-btn action-btn-2"
                 >
                   Download Brochure
                 </Link>
 
                 {/* Watch Demo */}
-                <button 
+                <button
                   onClick={videoOpenHandler}
                   className="action-btn action-btn-3"
                   style={{ border: 'none', cursor: 'pointer' }}

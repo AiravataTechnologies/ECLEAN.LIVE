@@ -12,7 +12,7 @@ export default function NewslatterStyle2() {
 
   return (
     <>
-      {/* Add CSS for hover animations */}
+      {/* Enhanced CSS for mobile responsiveness */}
       <style jsx>{`
         .hover-btn {
           transition: all 0.3s ease !important;
@@ -26,7 +26,7 @@ export default function NewslatterStyle2() {
           transform: translateY(0px);
         }
         
-        /* Fix for container overflow */
+        /* Container fixes */
         .newslatter-sec2 {
           overflow: hidden;
           width: 100%;
@@ -39,43 +39,230 @@ export default function NewslatterStyle2() {
           max-width: 100%;
         }
         
-        /* Responsive fixes */
-        @media (max-width: 991px) {
+        /* Video section responsiveness */
+        .video-sec {
+          min-height: 400px;
+          position: relative;
+        }
+        
+        .play-btn {
+          width: 80px;
+          height: 80px;
+          background: rgba(255, 255, 255, 0.9);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+          text-decoration: none;
+        }
+        
+        .play-btn:hover {
+          background: rgba(255, 255, 255, 1);
+          transform: scale(1.1);
+        }
+        
+        .play-btn i {
+          font-size: 24px;
+          color: #00AC4E;
+          margin-left: 4px;
+        }
+        
+        /* Content section */
+        .sec-content {
+          padding: 3rem 2rem;
+        }
+        
+        .sec-title {
+          font-size: 2.5rem;
+          line-height: 1.2;
+          margin-bottom: 1.5rem;
+        }
+        
+        .sec-text {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          margin-bottom: 2.5rem;
+          max-width: 500px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        /* Button styling */
+        .button-group {
+          width: 100%;
+          max-width: 500px;
+          margin: 0 auto;
+        }
+        
+        .btn-primary-custom {
+          min-width: 180px;
+          max-width: 200px;
+          background-color: #ffffff;
+          color: #333333;
+          border: 2px solid transparent;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary-custom {
+          max-width: 400px;
+          width: 100%;
+          background-color: #ffffff;
+          color: #00AC4E;
+          border: 2px solid transparent;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Tablet styles */
+        @media (max-width: 991.98px) {
           .video-sec {
-            min-height: 250px !important;
-            margin-bottom: 0;
+            min-height: 300px !important;
           }
           
           .sec-content {
-            padding: 2rem 1rem !important;
+            padding: 2.5rem 1.5rem !important;
+          }
+          
+          .sec-title {
+            font-size: 2.2rem !important;
+          }
+          
+          .sec-text {
+            font-size: 1.05rem !important;
+          }
+          
+          .button-group .d-flex {
+            gap: 0.75rem !important;
+          }
+          
+          .btn-primary-custom {
+            min-width: 160px !important;
+            max-width: 180px !important;
+          }
+        }
+        
+        /* Mobile landscape */
+        @media (max-width: 768px) {
+          .newslatter-sec2 .row {
+            flex-direction: column-reverse;
+          }
+          
+          .video-sec {
+            min-height: 250px !important;
+          }
+          
+          .sec-content {
+            padding: 2rem 1.5rem !important;
           }
           
           .sec-title {
             font-size: 2rem !important;
+            margin-bottom: 1rem !important;
+          }
+          
+          .sec-text {
+            font-size: 1rem !important;
+            margin-bottom: 2rem !important;
           }
           
           .button-group .d-flex {
             flex-direction: column !important;
             gap: 1rem !important;
+            align-items: stretch !important;
           }
           
-          .btn {
+          .btn-primary-custom {
+            min-width: auto !important;
+            max-width: none !important;
             width: 100% !important;
-            max-width: 280px !important;
+          }
+          
+          .play-btn {
+            width: 60px;
+            height: 60px;
+          }
+          
+          .play-btn i {
+            font-size: 20px;
           }
         }
         
+        /* Mobile portrait */
         @media (max-width: 576px) {
+          .sec-content {
+            padding: 1.5rem 1rem !important;
+          }
+          
           .sec-title {
-            font-size: 1.75rem !important;
+            font-size: 1.8rem !important;
+            margin-bottom: 1rem !important;
           }
           
           .sec-text {
-            font-size: 1rem !important;
+            font-size: 0.95rem !important;
+            margin-bottom: 1.5rem !important;
+          }
+          
+          .video-sec {
+            min-height: 200px !important;
+          }
+          
+          .play-btn {
+            width: 50px;
+            height: 50px;
+          }
+          
+          .play-btn i {
+            font-size: 18px;
+          }
+          
+          .btn {
+            padding: 0.75rem 1rem !important;
+            font-size: 0.95rem !important;
+          }
+        }
+        
+        /* Very small screens */
+        @media (max-width: 360px) {
+          .sec-content {
+            padding: 1rem 0.75rem !important;
+          }
+          
+          .sec-title {
+            font-size: 1.6rem !important;
+          }
+          
+          .sec-text {
+            font-size: 0.9rem !important;
+          }
+          
+          .video-sec {
+            min-height: 180px !important;
+          }
+        }
+        
+        /* Landscape orientation on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+          .video-sec {
+            min-height: 150px !important;
           }
           
           .sec-content {
-            padding: 1.5rem 1rem !important;
+            padding: 1rem !important;
+          }
+          
+          .sec-title {
+            font-size: 1.5rem !important;
+            margin-bottom: 0.5rem !important;
+          }
+          
+          .sec-text {
+            font-size: 0.9rem !important;
+            margin-bottom: 1rem !important;
+          }
+          
+          .button-group {
+            gap: 0.5rem !important;
           }
         }
       `}</style>
@@ -117,22 +304,15 @@ export default function NewslatterStyle2() {
 
             {/* Right: Content */}
             <div className="col-lg-6 d-flex align-items-center justify-content-center">
-              <div className="sec-content w-100 text-center px-4 px-lg-5 py-5">
-                <h2 className="sec-title text-white fw-bold mb-4" style={{ 
-                  fontSize: "2.5rem", 
-                  lineHeight: "1.2",
-                  textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                  marginBottom: "1.5rem"
+              <div className="sec-content w-100 text-center">
+                <h2 className="sec-title text-white fw-bold" style={{
+                  textShadow: "0 2px 4px rgba(0,0,0,0.3)"
                 }}>
                   AI Based SaaS Platform Hygiene
                 </h2>
-                <p className="sec-text text-white mb-5" style={{ 
-                  fontSize: "1.1rem",
-                  lineHeight: "1.6",
+                <p className="sec-text text-white" style={{
                   opacity: "1",
-                  textShadow: "0 1px 2px rgba(0,0,0,0.2)",
-                  maxWidth: "500px",
-                  margin: "0 auto 2.5rem auto"
+                  textShadow: "0 1px 2px rgba(0,0,0,0.2)"
                 }}>
                   Watch our content for intelligent cleaning
                   management, real-time compliance tracking, and automated
@@ -146,16 +326,11 @@ export default function NewslatterStyle2() {
                     <Link
                       to="/brochure.pdf"
                       target="_blank"
-                      className="btn hover-btn px-4 py-3 text-center fw-semibold rounded-3 border-0 shadow-lg"
-                      style={{ 
-                        minWidth: "180px",
-                        maxWidth: "200px",
-                        backgroundColor: "#ffffff",
-                        color: "#333333",
+                      className="btn hover-btn btn-primary-custom px-4 py-3 text-center fw-semibold rounded-3 border-0 shadow-lg"
+                      style={{
                         textDecoration: "none",
                         fontSize: "1rem",
-                        transition: "all 0.3s ease",
-                        boxShadow: "0 4px 15px rgba(0,0,0,0.2)"
+                        transition: "all 0.3s ease"
                       }}
                     >
                       <span className="txt">Download Brochure</span>
@@ -163,15 +338,10 @@ export default function NewslatterStyle2() {
 
                     <button
                       onClick={videoOpenHandler}
-                      className="btn hover-btn px-4 py-3 text-center fw-semibold rounded-3 border-0 shadow-lg"
-                      style={{ 
-                        minWidth: "180px",
-                        maxWidth: "200px",
-                        backgroundColor: "#ffffff",
-                        color: "#333333",
+                      className="btn hover-btn btn-primary-custom px-4 py-3 text-center fw-semibold rounded-3 border-0 shadow-lg"
+                      style={{
                         fontSize: "1rem",
-                        transition: "all 0.3s ease",
-                        boxShadow: "0 4px 15px rgba(0,0,0,0.2)"
+                        transition: "all 0.3s ease"
                       }}
                     >
                       <span className="txt">Watch Demo</span>
@@ -181,19 +351,13 @@ export default function NewslatterStyle2() {
                   {/* Full-width Sign Up */}
                   <Link
                     to="/signup"
-                    className="btn hover-btn px-5 py-3 text-center fw-bold rounded-3 border-0 shadow-lg"
+                    className="btn hover-btn btn-secondary-custom px-5 py-3 text-center fw-bold rounded-3 border-0 shadow-lg"
                     style={{
-                      maxWidth: "400px",
-                      width: "100%",
-                      backgroundColor: "#ffffff",
-                      color: "#00AC4E",
                       textDecoration: "none",
                       fontSize: "1.1rem",
                       whiteSpace: "normal",
                       lineHeight: "1.4",
-                      transition: "all 0.3s ease",
-                      boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-                      border: "2px solid transparent"
+                      transition: "all 0.3s ease"
                     }}
                   >
                     <span className="txt">Sign Up For A 14-Day Free Trial</span>
