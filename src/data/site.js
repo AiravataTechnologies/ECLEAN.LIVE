@@ -30,36 +30,36 @@ export const services = [
 ];
 
 export const services_2 = [
-  {
-    imgUrl: "/public/images/service/AIDRIVEN HYGIENE.JPG",
-    title: "AI-Driven Facility & Hygiene",
-    brief: "Task creation, audit tracking, and compliance monitoring—all backed by AI-powered automation.",
-  },
-  {
-    imgUrl: "public/images/service/END TO END SERVICE AUTO.JPG", 
-    title: "End-to-End Service Automation",
-    brief: "From lead to invoice, automate every service lifecycle stage with audit, task, and feedback control.",
-  },
-  {
-    imgUrl: "public/images/service/GEO ATTENDANCE AND TASK.JPG",
-    title: "Geo-Attendance & Scheduling",
-    brief: "Enable GPS-based check-ins, skill-based assignments, and real-time progress tracking.",
-  },
-  {
-    imgUrl: "/public/images/service/QRCODEFEEDBACK.JPG",
-    title: "QR Code Feedback & Ratings",
-    brief: "Gather instant feedback and service ratings via unique QR codes at each location.",
-  },
-  {
-    imgUrl: "/public/images/service/WORKERANDSUPERVISOR.JPG",
-    title: "Worker & Supervisor Apps",
-    brief: "Empower workforce with task access, feedback, leave, and tracking in one unified mobile app.",
-  },
-  {
-    imgUrl: "/public/images/service/CLIENTDASHBOARD.JPG",
-    title: "Client Dashboard",
-    brief: "Centralized insights with performance KPIs, ticket status, and service history for all locations.",
-  }
+    {
+        imgUrl: "/public/images/service/AIDRIVEN HYGIENE.png",
+        title: "AI-Driven Facility & Hygiene",
+        brief: "Task creation, audit tracking, and compliance monitoring—all backed by AI-powered automation.",
+    },
+    {
+        imgUrl: "public/images/service/END TO END SERVICE AUTO.png",
+        title: "End-to-End Service Automation",
+        brief: "From lead to invoice, automate every service lifecycle stage with audit, task, and feedback control.",
+    },
+    {
+        imgUrl: "public/images/service/GEO ATTENDANCE AND TASK.png",
+        title: "Geo-Attendance & Scheduling",
+        brief: "Enable GPS-based check-ins, skill-based assignments, and real-time progress tracking.",
+    },
+    {
+        imgUrl: "/public/images/service/QRCODEFEEDBACK.png",
+        title: "QR Code Feedback & Ratings",
+        brief: "Gather instant feedback and service ratings via unique QR codes at each location.",
+    },
+    {
+        imgUrl: "/public/images/service/WORKERANDSUPERVISOR.png",
+        title: "Worker & Supervisor Apps",
+        brief: "Empower workforce with task access, feedback, leave, and tracking in one unified mobile app.",
+    },
+    {
+        imgUrl: "/public/images/service/CLIENTDASHBOARD.png",
+        title: "Client Dashboard",
+        brief: "Centralized insights with performance KPIs, ticket status, and service history for all locations.",
+    }
 ];
 
 export const services_3 = [
