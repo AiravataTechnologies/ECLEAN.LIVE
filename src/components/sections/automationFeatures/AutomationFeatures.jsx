@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const features = [
   "Smart Analytics & Reporting Dashboard",
   "Automated Lead Generation & CRM",
-  "Digital Service Audit Management", 
+  "Digital Service Audit Management",
   "Intelligent Job Creation & Scheduling",
   "Real-time Client Feedback & Invoicing",
   "AI-Powered Role Assignment System",
@@ -14,14 +14,26 @@ const features = [
 export default function AICleaningPlatform() {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timer);
+
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 992);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   return (
-    <section style={{
+    <section className="responsive-section" style={{
       padding: '100px 0',
       background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
       position: 'relative',
@@ -69,33 +81,39 @@ export default function AICleaningPlatform() {
         pointerEvents: 'none',
         animation: 'gradientShift 8s ease-in-out infinite'
       }}></div>
-      
-      <div style={{
+
+      <div className="responsive-container" style={{
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '0 15px',
         position: 'relative',
         zIndex: 2
       }}>
-        <div style={{
+        <div className="responsive-row" style={{
           display: 'flex',
           flexWrap: 'wrap',
           margin: '0 -15px',
           alignItems: 'center'
         }}>
           {/* Left Content - Mobile Mockups */}
-          <div style={{
-            flex: '0 0 41.666667%',
-            maxWidth: '41.666667%',
+          <div className="responsive-col" style={{
+            flex: isMobile ? '0 0 100%' : '0 0 41.666667%',
+            maxWidth: isMobile ? '100%' : '41.666667%',
             padding: '0 15px',
-            paddingRight: '20px', // Reduced from 40px to 20px
+            paddingRight: isMobile ? '15px' : '20px',
+            marginBottom: isMobile ? '50px' : '0',
             transform: isVisible ? 'translateX(0)' : 'translateX(-50px)',
             opacity: isVisible ? 1 : 0,
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
           }}>
-            <div style={{ position: 'relative', display: 'flex', justifyContent: 'flex-start' }}> {/* Changed to flex-start */}
+            <div className="responsive-mockups" style={{
+              position: 'relative',
+              display: 'flex',
+              justifyContent: isMobile ? 'center' : 'flex-start',
+              height: isMobile ? 'auto' : '600px'
+            }}>
               {/* Main Phone */}
-              <div style={{
+              <div className="main-phone" style={{
                 background: '#000',
                 borderRadius: '3rem',
                 padding: '16px',
@@ -104,10 +122,11 @@ export default function AICleaningPlatform() {
                 transition: 'transform 0.5s ease',
                 position: 'relative',
                 zIndex: 20,
-                marginLeft: '20px' // Added margin to shift left
+                marginLeft: isMobile ? '0' : '20px',
+                width: isMobile ? '280px' : 'auto'
               }}
-              onMouseEnter={(e) => e.target.style.transform = 'rotate(0deg)'}
-              onMouseLeave={(e) => e.target.style.transform = 'rotate(-2deg)'}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(0deg)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(-2deg)'}
               >
                 <div style={{
                   background: 'white',
@@ -125,7 +144,7 @@ export default function AICleaningPlatform() {
                   }}>
                     <h3 style={{ fontWeight: 'bold', fontSize: '14px', margin: 0 }}>Contract Details</h3>
                   </div>
-                  
+
                   <div style={{ padding: '16px', fontSize: '14px' }}>
                     <div style={{ marginBottom: '16px' }}>
                       <div style={{ marginBottom: '8px' }}>
@@ -137,7 +156,7 @@ export default function AICleaningPlatform() {
                         <span style={{ color: '#22c55e', fontWeight: '500' }}>Active</span>
                       </div>
                     </div>
-                    
+
                     <div style={{
                       background: '#fed7aa',
                       padding: '12px',
@@ -163,7 +182,7 @@ export default function AICleaningPlatform() {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div style={{ marginBottom: '16px' }}>
                       <div style={{ fontWeight: '600', marginBottom: '8px', color: '#1f2937' }}>Service Tasks:</div>
                       <ul style={{ fontSize: '12px', color: '#6b7280', paddingLeft: '8px', margin: 0 }}>
@@ -173,7 +192,7 @@ export default function AICleaningPlatform() {
                         <li>• Waste Management Systems</li>
                       </ul>
                     </div>
-                    
+
                     <div style={{
                       display: 'grid',
                       gridTemplateColumns: '1fr 1fr',
@@ -182,15 +201,15 @@ export default function AICleaningPlatform() {
                       marginBottom: '16px'
                     }}>
                       <div>
-                        <span style={{ fontWeight: '600', color: '#1f2937' }}>Start Date:</span><br/>
+                        <span style={{ fontWeight: '600', color: '#1f2937' }}>Start Date:</span><br />
                         <span style={{ color: '#6b7280' }}>15-Jan-2024</span>
                       </div>
                       <div>
-                        <span style={{ fontWeight: '600', color: '#1f2937' }}>End Date:</span><br/>
+                        <span style={{ fontWeight: '600', color: '#1f2937' }}>End Date:</span><br />
                         <span style={{ color: '#6b7280' }}>31-Dec-2024</span>
                       </div>
                     </div>
-                    
+
                     <div style={{
                       background: '#22c55e',
                       color: 'white',
@@ -203,7 +222,7 @@ export default function AICleaningPlatform() {
                     }}>
                       Active Contract
                     </div>
-                    
+
                     <div style={{
                       display: 'grid',
                       gridTemplateColumns: '1fr 1fr',
@@ -220,7 +239,7 @@ export default function AICleaningPlatform() {
                         <div style={{ fontSize: '12px', color: '#6b7280' }}>Pending</div>
                       </div>
                     </div>
-                    
+
                     <div style={{
                       background: 'linear-gradient(90deg, #dcfce7, #dbeafe)',
                       padding: '8px 12px',
@@ -232,119 +251,122 @@ export default function AICleaningPlatform() {
                   </div>
                 </div>
               </div>
-              
-              {/* Second Phone - Adjusted positioning */}
-              <div style={{
-                position: 'absolute',
-                top: '80px',
-                right: '0', // Changed from -64px to 0
-                background: '#000',
-                borderRadius: '2.5rem',
-                padding: '12px',
-                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.2)',
-                transform: 'rotate(5deg)',
-                transition: 'transform 0.5s ease',
-                zIndex: 10
-              }}
-              onMouseEnter={(e) => e.target.style.transform = 'rotate(2deg)'}
-              onMouseLeave={(e) => e.target.style.transform = 'rotate(5deg)'}
-              >
-                <div style={{
-                  background: 'white',
-                  borderRadius: '2rem',
-                  overflow: 'hidden',
-                  width: '200px',
-                  height: '350px'
-                }}>
+
+              {/* Second Phone - Only show on desktop */}
+              {!isMobile && (
+                <div className="second-phone" style={{
+                  position: 'absolute',
+                  top: '80px',
+                  right: '0',
+                  background: '#000',
+                  borderRadius: '2.5rem',
+                  padding: '12px',
+                  boxShadow: '0 15px 40px rgba(0, 0, 0, 0.2)',
+                  transform: 'rotate(5deg)',
+                  transition: 'transform 0.5s ease',
+                  zIndex: 10
+                }}
+                  onMouseEnter={(e) => e.currentTarget.style.transform = 'rotate(2deg)'}
+                  onMouseLeave={(e) => e.currentTarget.style.transform = 'rotate(5deg)'}
+                >
                   <div style={{
-                    background: '#22c55e',
-                    color: 'white',
-                    padding: '8px 12px',
-                    textAlign: 'center'
+                    background: 'white',
+                    borderRadius: '2rem',
+                    overflow: 'hidden',
+                    width: '200px',
+                    height: '350px'
                   }}>
-                    <h3 style={{ fontWeight: 'bold', fontSize: '12px', margin: 0 }}>AI Team Hub</h3>
-                  </div>
-                  
-                  <div style={{ padding: '12px' }}>
                     <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      padding: '8px',
-                      background: '#dbeafe',
-                      borderRadius: '8px',
-                      marginBottom: '12px'
+                      background: '#22c55e',
+                      color: 'white',
+                      padding: '8px 12px',
+                      textAlign: 'center'
                     }}>
+                      <h3 style={{ fontWeight: 'bold', fontSize: '12px', margin: 0 }}>AI Team Hub</h3>
+                    </div>
+
+                    <div style={{ padding: '12px' }}>
                       <div style={{
-                        width: '24px',
-                        height: '24px',
-                        background: '#3b82f6',
-                        borderRadius: '50%',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center'
+                        gap: '8px',
+                        padding: '8px',
+                        background: '#dbeafe',
+                        borderRadius: '8px',
+                        marginBottom: '12px'
                       }}>
-                        <span style={{ color: 'white', fontSize: '10px', fontWeight: 'bold' }}>TL</span>
+                        <div style={{
+                          width: '24px',
+                          height: '24px',
+                          background: '#3b82f6',
+                          borderRadius: '50%',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}>
+                          <span style={{ color: 'white', fontSize: '10px', fontWeight: 'bold' }}>TL</span>
+                        </div>
+                        <div style={{ fontSize: '12px' }}>
+                          <div style={{ fontWeight: '600', color: '#1f2937' }}>TEAM LEADER</div>
+                          <div style={{ color: '#22c55e', fontWeight: '500' }}>Online</div>
+                        </div>
                       </div>
-                      <div style={{ fontSize: '12px' }}>
-                        <div style={{ fontWeight: '600', color: '#1f2937' }}>TEAM LEADER</div>
-                        <div style={{ color: '#22c55e', fontWeight: '500' }}>Online</div>
-                      </div>
-                    </div>
-                    
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      padding: '8px',
-                      background: '#dcfce7',
-                      borderRadius: '8px',
-                      marginBottom: '12px'
-                    }}>
+
                       <div style={{
-                        width: '24px',
-                        height: '24px',
-                        background: '#22c55e',
-                        borderRadius: '50%',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center'
+                        gap: '8px',
+                        padding: '8px',
+                        background: '#dcfce7',
+                        borderRadius: '8px',
+                        marginBottom: '12px'
                       }}>
-                        <span style={{ color: 'white', fontSize: '10px', fontWeight: 'bold' }}>CS</span>
+                        <div style={{
+                          width: '24px',
+                          height: '24px',
+                          background: '#22c55e',
+                          borderRadius: '50%',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}>
+                          <span style={{ color: 'white', fontSize: '10px', fontWeight: 'bold' }}>CS</span>
+                        </div>
+                        <div style={{ fontSize: '12px' }}>
+                          <div style={{ fontWeight: '600', color: '#1f2937' }}>CLEANING STAFF</div>
+                          <div style={{ color: '#22c55e', fontWeight: '500' }}>Active</div>
+                        </div>
                       </div>
-                      <div style={{ fontSize: '12px' }}>
-                        <div style={{ fontWeight: '600', color: '#1f2937' }}>CLEANING STAFF</div>
-                        <div style={{ color: '#22c55e', fontWeight: '500' }}>Active</div>
+
+                      <div style={{
+                        background: 'linear-gradient(90deg, #dbeafe, #dcfce7)',
+                        padding: '12px',
+                        borderRadius: '8px',
+                        marginBottom: '12px'
+                      }}>
+                        <div style={{ fontSize: '12px', fontWeight: '600', color: '#1f2937' }}>Today's Progress</div>
+                        <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#22c55e' }}>12/15</div>
+                        <div style={{ fontSize: '12px', color: '#6b7280' }}>Tasks Completed</div>
                       </div>
-                    </div>
-                    
-                    <div style={{
-                      background: 'linear-gradient(90deg, #dbeafe, #dcfce7)',
-                      padding: '12px',
-                      borderRadius: '8px',
-                      marginBottom: '12px'
-                    }}>
-                      <div style={{ fontSize: '12px', fontWeight: '600', color: '#1f2937' }}>Today's Progress</div>
-                      <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#22c55e' }}>12/15</div>
-                      <div style={{ fontSize: '12px', color: '#6b7280' }}>Tasks Completed</div>
-                    </div>
-                    
-                    <div style={{ background: '#f9fafb', padding: '8px', borderRadius: '6px', fontSize: '12px' }}>
-                      <div style={{ fontWeight: '500', color: '#1f2937' }}>Current Task</div>
-                      <div style={{ color: '#6b7280' }}>Floor Sanitization - B2</div>
+
+                      <div style={{ background: '#f9fafb', padding: '8px', borderRadius: '6px', fontSize: '12px' }}>
+                        <div style={{ fontWeight: '500', color: '#1f2937' }}>Current Task</div>
+                        <div style={{ color: '#6b7280' }}>Floor Sanitization - B2</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
-          
+
           {/* Right Content */}
-          <div style={{
-            flex: '0 0 58.333333%',
-            maxWidth: '58.333333%',
+          <div className="responsive-col responsive-content" style={{
+            flex: isMobile ? '0 0 100%' : '0 0 58.333333%',
+            maxWidth: isMobile ? '100%' : '58.333333%',
             padding: '0 15px',
-            paddingLeft: '30px',
+            paddingLeft: isMobile ? '15px' : '30px',
+            textAlign: isMobile ? 'center' : 'left',
             transform: isVisible ? 'translateX(0)' : 'translateX(50px)',
             opacity: isVisible ? 1 : 0,
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s'
@@ -367,8 +389,8 @@ export default function AICleaningPlatform() {
               }}>
                 AI-Powered Solution
               </span>
-              <h2 style={{
-                fontSize: '52px',
+              <h2 className="responsive-title" style={{
+                fontSize: isMobile ? (window.innerWidth < 576 ? '32px' : '42px') : '52px',
                 fontWeight: '800',
                 color: '#333',
                 lineHeight: '1.2',
@@ -384,12 +406,12 @@ export default function AICleaningPlatform() {
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
                   animation: 'textGlow 2s ease-in-out infinite alternate'
-                }}>Hygiene</span> & 
-                <br/>
+                }}>Hygiene</span> &
+                <br />
                 <span style={{ color: '#22c55e' }}>Cleaning</span> Automation
               </h2>
-              <p style={{
-                fontSize: '18px',
+              <p className="responsive-description" style={{
+                fontSize: isMobile ? '16px' : '18px',
                 color: '#666',
                 lineHeight: '1.6',
                 marginBottom: '30px',
@@ -397,34 +419,37 @@ export default function AICleaningPlatform() {
                 opacity: isVisible ? 1 : 0,
                 transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s'
               }}>
-                Revolutionary AI-based SaaS platform designed specifically for the hygiene and cleaning industry. 
+                Revolutionary AI-based SaaS platform designed specifically for the hygiene and cleaning industry.
                 Streamline operations, enhance productivity, and deliver exceptional service quality.
               </p>
             </div>
 
-            <div style={{
+            <div className="responsive-grid" style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '20px'
+              gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+              gap: isMobile ? '15px' : '20px',
+              maxWidth: isMobile ? '500px' : 'none',
+              margin: isMobile ? '0 auto' : '0'
             }}>
               {features.map((feature, index) => (
-                <div 
+                <div
                   key={index}
                   onMouseEnter={() => setHoveredCard(index)}
                   onMouseLeave={() => setHoveredCard(null)}
+                  className="responsive-card"
                   style={{
                     display: 'flex',
                     alignItems: 'flex-start',
                     gap: '12px',
                     background: 'white',
-                    padding: '20px',
+                    padding: isMobile ? '18px 15px' : '20px',
                     borderRadius: '16px',
-                    boxShadow: hoveredCard === index 
-                      ? '0 25px 60px rgba(59, 130, 246, 0.2)' 
+                    boxShadow: hoveredCard === index
+                      ? '0 25px 60px rgba(59, 130, 246, 0.2)'
                       : '0 8px 30px rgba(0, 0, 0, 0.1)',
                     border: '1px solid rgba(229, 231, 235, 0.8)',
-                    transform: hoveredCard === index 
-                      ? 'translateY(-8px) scale(1.02)' 
+                    transform: hoveredCard === index
+                      ? 'translateY(-8px) scale(1.02)'
                       : 'translateY(0) scale(1)',
                     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                     cursor: 'pointer',
@@ -445,7 +470,7 @@ export default function AICleaningPlatform() {
                     transition: 'transform 0.6s ease-in-out',
                     pointerEvents: 'none'
                   }}></div>
-                  
+
                   <div style={{
                     width: '24px',
                     height: '24px',
@@ -460,13 +485,14 @@ export default function AICleaningPlatform() {
                   }}>
                     <span style={{ color: 'white', fontWeight: 'bold', fontSize: '12px' }}>✓</span>
                   </div>
-                  <span style={{
+                  <span className="responsive-text" style={{
                     color: '#374151',
                     fontWeight: '500',
-                    fontSize: '15px',
+                    fontSize: isMobile ? '14px' : '15px',
                     lineHeight: '1.5',
                     position: 'relative',
-                    zIndex: 1
+                    zIndex: 1,
+                    textAlign: 'left'
                   }}>{feature}</span>
                 </div>
               ))}
@@ -474,7 +500,7 @@ export default function AICleaningPlatform() {
           </div>
         </div>
       </div>
-      
+
       <style jsx>{`
         @keyframes pulse {
           0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
@@ -523,66 +549,109 @@ export default function AICleaningPlatform() {
           }
         }
         
+        /* Mobile Responsive Styles */
         @media (max-width: 991px) {
-          .responsive-col {
-            flex: 0 0 100% !important;
-            max-width: 100% !important;
+          .responsive-section {
+            padding: 80px 0 !important;
           }
           
-          .responsive-content {
-            padding-right: 0 !important;
-            margin-bottom: 50px;
-            text-align: center;
+          .main-phone {
+            transform: rotate(0deg) !important;
           }
           
-          .responsive-grid {
-            padding-left: 0 !important;
-            grid-template-columns: 1fr !important;
-          }
-          
-          .responsive-title {
-            font-size: 42px !important;
+          .main-phone:hover {
+            transform: rotate(0deg) !important;
           }
         }
         
         @media (max-width: 768px) {
           .responsive-section {
-            padding: 80px 0 !important;
+            padding: 60px 0 !important;
+          }
+          
+          .responsive-container {
+            padding: 0 20px !important;
+          }
+          
+          .responsive-row {
+            margin: 0 -10px !important;
+          }
+          
+          .responsive-col {
+            padding: 0 10px !important;
+          }
+          
+          .main-phone {
+            width: 250px !important;
+          }
+          
+          .main-phone > div {
+            width: 250px !important;
+            height: 500px !important;
           }
           
           .responsive-grid {
-            grid-template-columns: 1fr !important;
-            gap: 25px !important;
-          }
-          
-          .responsive-title {
-            font-size: 36px !important;
-          }
-          
-          .responsive-card {
-            padding: 25px 20px !important;
-          }
-          
-          .responsive-text {
-            font-size: 15px !important;
+            gap: 12px !important;
+            max-width: 400px !important;
           }
         }
         
         @media (max-width: 576px) {
-          .responsive-title {
-            font-size: 32px !important;
+          .responsive-section {
+            padding: 50px 0 !important;
           }
           
-          .responsive-description {
-            font-size: 16px !important;
+          .responsive-container {
+            padding: 0 15px !important;
+          }
+          
+          .main-phone {
+            width: 220px !important;
+          }
+          
+          .main-phone > div {
+            width: 220px !important;
+            height: 440px !important;
+          }
+          
+          .main-phone > div > div:first-child {
+            padding: 10px 12px !important;
+          }
+          
+          .main-phone > div > div:last-child {
+            padding: 12px !important;
+            font-size: 12px !important;
+          }
+          
+          .responsive-grid {
+            max-width: 100% !important;
           }
           
           .responsive-card {
-            padding: 20px 15px !important;
+            padding: 15px 12px !important;
           }
           
           .responsive-text {
-            font-size: 14px !important;
+            font-size: 13px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .main-phone {
+            width: 200px !important;
+          }
+          
+          .main-phone > div {
+            width: 200px !important;
+            height: 400px !important;
+          }
+          
+          .responsive-title {
+            font-size: 28px !important;
+          }
+          
+          .responsive-description {
+            font-size: 15px !important;
           }
         }
       `}</style>

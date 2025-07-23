@@ -17,7 +17,7 @@ const WhoWeServe = () => {
       delay: '0.1s'
     },
     {
-      title: "Industrial Plants & Large Facilities", 
+      title: "Industrial Plants & Large Facilities",
       description: "Specialized cleaning solutions for manufacturing plants, warehouses, and large-scale industrial facilities",
       gradient: 'linear-gradient(135deg, #28a745, #20c997)',
       delay: '0.2s'
@@ -49,7 +49,7 @@ const WhoWeServe = () => {
   ];
 
   return (
-    <section style={{
+    <section className="responsive-section" style={{
       padding: '100px 0',
       background: '#f8f9fa',
       position: 'relative',
@@ -97,7 +97,7 @@ const WhoWeServe = () => {
         pointerEvents: 'none',
         animation: 'gradientShift 8s ease-in-out infinite'
       }}></div>
-      
+
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
@@ -131,14 +131,14 @@ const WhoWeServe = () => {
           </span>
         </div>
 
-        <div style={{
+        <div className="responsive-layout" style={{
           display: 'flex',
           flexWrap: 'wrap',
           margin: '0 -15px',
           alignItems: 'flex-start'
         }}>
           {/* Left Content - Title, Description, and Service Cards */}
-          <div style={{
+          <div className="responsive-col responsive-content" style={{
             flex: '0 0 50%',
             maxWidth: '50%',
             padding: '0 15px',
@@ -151,7 +151,7 @@ const WhoWeServe = () => {
               opacity: isVisible ? 1 : 0,
               transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s'
             }}>
-              <h2 style={{
+              <h2 className="responsive-title" style={{
                 fontSize: '52px',
                 fontWeight: '800',
                 color: '#333',
@@ -170,7 +170,7 @@ const WhoWeServe = () => {
                   animation: 'textGlow 2s ease-in-out infinite alternate'
                 }}>Serve</span>?
               </h2>
-              <p style={{
+              <p className="responsive-description" style={{
                 fontSize: '18px',
                 color: '#666',
                 lineHeight: '1.6',
@@ -189,14 +189,15 @@ const WhoWeServe = () => {
               opacity: isVisible ? 1 : 0,
               transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s'
             }}>
-              <div style={{
+              <div className="responsive-grid" style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
                 gap: '25px'
               }}>
                 {serviceCards.map((card, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
+                    className="responsive-card"
                     onMouseEnter={() => setHoveredCard(index)}
                     onMouseLeave={() => setHoveredCard(null)}
                     style={{
@@ -204,13 +205,13 @@ const WhoWeServe = () => {
                       color: 'white',
                       padding: '25px 20px',
                       borderRadius: '18px',
-                      boxShadow: hoveredCard === index 
-                        ? '0 25px 60px rgba(40, 167, 69, 0.4)' 
+                      boxShadow: hoveredCard === index
+                        ? '0 25px 60px rgba(40, 167, 69, 0.4)'
                         : '0 15px 40px rgba(0, 0, 0, 0.2)',
                       border: '1px solid rgba(255, 255, 255, 0.2)',
                       animation: `slideInUp 0.6s ease-out both ${card.delay}`,
-                      transform: hoveredCard === index 
-                        ? 'translateY(-8px) scale(1.02)' 
+                      transform: hoveredCard === index
+                        ? 'translateY(-8px) scale(1.02)'
                         : 'translateY(0) scale(1)',
                       transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                       cursor: 'pointer',
@@ -230,8 +231,8 @@ const WhoWeServe = () => {
                       transition: 'transform 0.6s ease-in-out',
                       pointerEvents: 'none'
                     }}></div>
-                    
-                    <h3 style={{
+
+                    <h3 className="responsive-card-title" style={{
                       fontSize: '16px',
                       fontWeight: '700',
                       lineHeight: '1.3',
@@ -243,7 +244,7 @@ const WhoWeServe = () => {
                     }}>
                       {card.title}
                     </h3>
-                    <p style={{
+                    <p className="responsive-card-description" style={{
                       fontSize: '13px',
                       fontWeight: '400',
                       lineHeight: '1.4',
@@ -262,7 +263,7 @@ const WhoWeServe = () => {
           </div>
 
           {/* Right Content - Larger Image without container */}
-          <div style={{
+          <div className="responsive-col responsive-image" style={{
             flex: '0 0 50%',
             maxWidth: '50%',
             padding: '0 15px',
@@ -272,10 +273,11 @@ const WhoWeServe = () => {
             display: 'flex',
             justifyContent: 'flex-end'
           }}>
-            {/* Large Image without container - increased size */}
-            <img 
-              src="/images/brand/brandnew.png" 
-              alt="Who we serve - eClean.Live services" 
+            {/* Large Image without container */}
+            <img
+              src="/images/brand/brandnew.png"
+              alt="Who we serve - eClean.Live services"
+              className="responsive-main-image"
               style={{
                 width: '120%',
                 height: 'auto',
@@ -289,14 +291,14 @@ const WhoWeServe = () => {
         </div>
 
         {/* Call to Action - Moved to bottom with compact design */}
-        <div style={{
+        <div className="responsive-cta" style={{
           textAlign: 'center',
           marginTop: '60px',
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
           opacity: isVisible ? 1 : 0,
           transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s'
         }}>
-          <div style={{
+          <div className="responsive-cta-container" style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '20px',
@@ -306,7 +308,7 @@ const WhoWeServe = () => {
             boxShadow: '0 15px 35px rgba(0, 0, 0, 0.1)',
             border: '1px solid rgba(40, 167, 69, 0.1)'
           }}>
-            <span style={{
+            <span className="responsive-cta-text" style={{
               color: '#666',
               fontWeight: '500',
               fontSize: '15px',
@@ -314,7 +316,7 @@ const WhoWeServe = () => {
             }}>
               Ready to experience professional cleaning services?
             </span>
-            <button style={{
+            <button className="responsive-cta-button" style={{
               background: 'linear-gradient(135deg, #28a745, #ff8c42)',
               color: 'white',
               padding: '12px 25px',
@@ -327,20 +329,20 @@ const WhoWeServe = () => {
               transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
               boxShadow: '0 8px 20px rgba(40, 167, 69, 0.3)'
             }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = 'scale(1.05)';
-              e.target.style.boxShadow = '0 12px 30px rgba(40, 167, 69, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = 'scale(1)';
-              e.target.style.boxShadow = '0 8px 20px rgba(40, 167, 69, 0.3)';
-            }}>
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'scale(1.05)';
+                e.target.style.boxShadow = '0 12px 30px rgba(40, 167, 69, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'scale(1)';
+                e.target.style.boxShadow = '0 8px 20px rgba(40, 167, 69, 0.3)';
+              }}>
               Get A Free Quote
             </button>
           </div>
         </div>
       </div>
-      
+
       <style jsx>{`
         @keyframes pulse {
           0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
@@ -389,54 +391,163 @@ const WhoWeServe = () => {
           }
         }
         
+        /* Tablet View */
         @media (max-width: 991px) {
+          .responsive-layout {
+            flex-direction: column;
+          }
+          
           .responsive-col {
             flex: 0 0 100% !important;
             max-width: 100% !important;
           }
           
           .responsive-content {
-            padding-right: 0 !important;
+            padding-right: 15px !important;
             margin-bottom: 50px;
             text-align: center;
+            order: 2;
+          }
+          
+          .responsive-image {
+            order: 1;
+            justify-content: center !important;
+            margin-bottom: 30px;
+          }
+          
+          .responsive-main-image {
+            width: 80% !important;
+            min-height: 400px !important;
+            transform: translateX(0%) !important;
           }
           
           .responsive-grid {
-            padding-left: 0 !important;
-            grid-template-columns: 1fr !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 20px !important;
           }
           
           .responsive-title {
             font-size: 42px !important;
           }
+          
+          .responsive-description {
+            font-size: 16px !important;
+          }
         }
         
+        /* Mobile View */
         @media (max-width: 768px) {
           .responsive-section {
-            padding: 80px 0 !important;
+            padding: 60px 0 !important;
           }
           
           .responsive-grid {
             grid-template-columns: 1fr !important;
-            gap: 20px !important;
+            gap: 15px !important;
           }
           
           .responsive-title {
             font-size: 36px !important;
+            margin-bottom: 15px !important;
+          }
+          
+          .responsive-description {
+            font-size: 15px !important;
           }
           
           .responsive-card {
             padding: 20px 15px !important;
           }
+          
+          .responsive-card-title {
+            font-size: 15px !important;
+          }
+          
+          .responsive-card-description {
+            font-size: 12px !important;
+          }
+          
+          .responsive-main-image {
+            width: 100% !important;
+            min-height: 300px !important;
+          }
+          
+          .responsive-cta {
+            margin-top: 40px !important;
+          }
+          
+          .responsive-cta-container {
+            flex-direction: column !important;
+            gap: 15px !important;
+            padding: 20px !important;
+            border-radius: 20px !important;
+          }
+          
+          .responsive-cta-text {
+            padding-left: 0 !important;
+            text-align: center;
+            font-size: 14px !important;
+          }
+          
+          .responsive-cta-button {
+            padding: 15px 30px !important;
+            border-radius: 25px !important;
+            font-size: 16px !important;
+          }
         }
         
+        /* Small Mobile View */
         @media (max-width: 576px) {
+          .responsive-section {
+            padding: 50px 0 !important;
+          }
+          
           .responsive-title {
-            font-size: 32px !important;
+            font-size: 28px !important;
+          }
+          
+          .responsive-description {
+            font-size: 14px !important;
           }
           
           .responsive-card {
             padding: 18px 12px !important;
+          }
+          
+          .responsive-card-title {
+            font-size: 14px !important;
+          }
+          
+          .responsive-card-description {
+            font-size: 11px !important;
+          }
+          
+          .responsive-main-image {
+            min-height: 250px !important;
+          }
+          
+          .responsive-cta-text {
+            font-size: 13px !important;
+          }
+          
+          .responsive-cta-button {
+            padding: 12px 25px !important;
+            font-size: 14px !important;
+          }
+        }
+        
+        /* Extra Small Mobile View */
+        @media (max-width: 480px) {
+          .responsive-title {
+            font-size: 24px !important;
+          }
+          
+          .responsive-card {
+            padding: 15px 10px !important;
+          }
+          
+          .responsive-main-image {
+            min-height: 200px !important;
           }
         }
       `}</style>

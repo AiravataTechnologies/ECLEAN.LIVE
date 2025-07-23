@@ -31,32 +31,32 @@ export const services = [
 
 export const services_2 = [
     {
-        imgUrl: "/public/images/service/aidriven_hygiene.png",
+        imgUrl: "/images/service/aidriven_hygiene.png",
         title: "AI-Driven Facility & Hygiene",
         brief: "Task creation, audit tracking, and compliance monitoring—all backed by AI-powered automation.",
     },
     {
-        imgUrl: "public/images/service/endtoend.png",
+        imgUrl: "/images/service/endtoend.png",
         title: "End-to-End Service Automation",
         brief: "From lead to invoice, automate every service lifecycle stage with audit, task, and feedback control.",
     },
     {
-        imgUrl: "public/images/service/geoattendance.png",
+        imgUrl: "/images/service/geoattendance.png",
         title: "Geo-Attendance & Scheduling",
         brief: "Enable GPS-based check-ins, skill-based assignments, and real-time progress tracking.",
     },
     {
-        imgUrl: "/public/images/service/qr.png",
+        imgUrl: "/images/service/qr.png",
         title: "QR Code Feedback & Ratings",
         brief: "Gather instant feedback and service ratings via unique QR codes at each location.",
     },
     {
-        imgUrl: "/public/images/service/worker.png",
+        imgUrl: "/images/service/worker.png",
         title: "Worker & Supervisor Apps",
         brief: "Empower workforce with task access, feedback, leave, and tracking in one unified mobile app.",
     },
     {
-        imgUrl: "/public/images/service/client.png",
+        imgUrl: "/images/service/client.png",
         title: "Client Dashboard",
         brief: "Centralized insights with performance KPIs, ticket status, and service history for all locations.",
     }
