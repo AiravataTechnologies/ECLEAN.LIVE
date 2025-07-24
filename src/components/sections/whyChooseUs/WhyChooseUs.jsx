@@ -196,13 +196,13 @@ const WhyChooseUs = () => {
                   Discover Excellence
                 </span>
                 <h2 style={titleStyle}>
-                  Why <span style={{ color: '#ff8c42' }}>e</span><span style={{
-                    background: 'linear-gradient(45deg, #28a745, #20c997)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    animation: 'textGlow 2s ease-in-out infinite alternate'
-                  }}>Clean</span> Live?
+                  Why <span style={{
+                    display: 'inline-block',
+                    textShadow: '0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6), 0 0 35px rgba(255, 255, 255, 0.4)',
+                    animation: 'whiteGlow 2s ease-in-out infinite alternate'
+                  }}>
+                    <span style={{ color: '#ff8c42' }}>e</span><span style={{ color: '#28a745' }}>Clean</span>
+                  </span> Live?
                 </h2>
                 <p style={descriptionStyle}>
                   Transform your operations with our cutting-edge digital solutions designed for maximum efficiency and unparalleled performance.
@@ -220,26 +220,41 @@ const WhyChooseUs = () => {
                   onMouseEnter={() => !isMobile && setHoveredCard(index)}
                   onMouseLeave={() => !isMobile && setHoveredCard(null)}
                   style={{
-                    background: feature.gradient,
+                    background: hoveredCard === index && !isMobile
+                      ? 'linear-gradient(135deg, #2eb84e, #22d4a3)'
+                      : feature.gradient,
                     color: 'white',
-                    padding: isMobile ? '20px 15px' : '30px 25px',
-                    borderRadius: isMobile ? '15px' : '20px',
+                    padding: isMobile ? '25px 20px' : '35px 30px',
+                    borderRadius: isMobile ? '18px' : '22px',
                     boxShadow: hoveredCard === index && !isMobile
-                      ? '0 25px 60px rgba(40, 167, 69, 0.4)'
+                      ? '0 30px 70px rgba(40, 167, 69, 0.5), 0 10px 30px rgba(40, 167, 69, 0.3)'
                       : isMobile
-                        ? '0 8px 25px rgba(0, 0, 0, 0.15)'
-                        : '0 15px 40px rgba(0, 0, 0, 0.2)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                        ? '0 12px 35px rgba(40, 167, 69, 0.25), 0 5px 15px rgba(0, 0, 0, 0.1)'
+                        : '0 20px 50px rgba(40, 167, 69, 0.3), 0 8px 25px rgba(0, 0, 0, 0.15)',
+                    border: '2px solid rgba(255, 255, 255, 0.25)',
                     animation: `slideInUp 0.6s ease-out both ${feature.delay}`,
                     transform: hoveredCard === index && !isMobile
-                      ? 'translateY(-10px) scale(1.02)'
+                      ? 'translateY(-15px) scale(1.05)'
                       : 'translateY(0) scale(1)',
                     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                     cursor: isMobile ? 'default' : 'pointer',
                     position: 'relative',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    backdropFilter: 'blur(10px)'
                   }}
                 >
+                  {/* Enhanced glow effect for better visibility */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '-50%',
+                    left: '-50%',
+                    right: '-50%',
+                    bottom: '-50%',
+                    background: 'radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%)',
+                    animation: 'rotate 4s linear infinite',
+                    pointerEvents: 'none'
+                  }}></div>
+
                   {/* Hover shine effect */}
                   {!isMobile && (
                     <div style={{
@@ -248,7 +263,7 @@ const WhyChooseUs = () => {
                       left: '-50%',
                       width: '200%',
                       height: '200%',
-                      background: 'linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
+                      background: 'linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
                       transform: hoveredCard === index ? 'translateX(100%)' : 'translateX(-100%)',
                       transition: 'transform 0.6s ease-in-out',
                       pointerEvents: 'none'
@@ -256,12 +271,12 @@ const WhyChooseUs = () => {
                   )}
 
                   <p style={{
-                    fontSize: isMobile ? '14px' : '16px',
-                    fontWeight: '400',
+                    fontSize: isMobile ? '15px' : '17px',
+                    fontWeight: '500',
                     lineHeight: '1.5',
                     margin: '0',
                     color: 'white',
-                    textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)',
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
                     position: 'relative',
                     zIndex: 1
                   }}>
@@ -286,9 +301,13 @@ const WhyChooseUs = () => {
           100% { background-position: 200% center; }
         }
         
-        @keyframes textGlow {
-          0% { text-shadow: 0 0 3px rgba(40, 167, 69, 0.3); }
-          100% { text-shadow: 0 0 8px rgba(40, 167, 69, 0.5), 0 0 12px rgba(32, 201, 151, 0.3); }
+        @keyframes whiteGlow {
+          0% { 
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6), 0 0 35px rgba(255, 255, 255, 0.4);
+          }
+          100% { 
+            text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
+          }
         }
         
         @keyframes slideInUp {
@@ -319,6 +338,15 @@ const WhyChooseUs = () => {
           }
           50% { 
             filter: hue-rotate(10deg) brightness(1.1); 
+          }
+        }
+        
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
           }
         }
       `}</style>

@@ -1,39 +1,74 @@
-const button_info = [
+import { useState, useEffect } from 'react';
+
+const stats_info = [
   {
     icon: "flaticon-management",
-    text: "Sign up for a 14-day free trial",
-    action: "signup"
+    label: "Happy Customers",
+    targetValue: 15420,
+    suffix: "+"
   },
   {
-    icon: "flaticon-completed-task", 
-    text: "Download Brochure",
-    action: "download"
+    icon: "flaticon-completed-task",
+    label: "Projects Completed",
+    targetValue: 8750,
+    suffix: "+"
   },
   {
     icon: "flaticon-handshake",
-    text: "Watch Demo",
-    action: "demo"
+    label: "Years of Experience",
+    targetValue: 12,
+    suffix: ""
   },
 ];
 
 export default function CompanyInfo() {
-  const handleButtonClick = (action) => {
-    switch(action) {
-      case 'signup':
-        console.log('Sign up clicked');
-        // Add your signup logic here
-        break;
-      case 'download':
-        console.log('Download brochure clicked');
-        // Add your download logic here
-        break;
-      case 'demo':
-        console.log('Watch demo clicked');
-        // Add your demo logic here
-        break;
-      default:
-        break;
+  const [counts, setCounts] = useState(stats_info.map(() => 0));
+  const [hasStarted, setHasStarted] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasStarted) {
+          setHasStarted(true);
+          startCountingAnimation();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    const section = document.querySelector('.company-qinfo-sec');
+    if (section) {
+      observer.observe(section);
     }
+
+    return () => observer.disconnect();
+  }, [hasStarted]);
+
+  const startCountingAnimation = () => {
+    stats_info.forEach((stat, index) => {
+      const duration = 2000; // 2 seconds
+      const steps = 60;
+      const increment = stat.targetValue / steps;
+      let currentCount = 0;
+
+      const timer = setInterval(() => {
+        currentCount += increment;
+        if (currentCount >= stat.targetValue) {
+          currentCount = stat.targetValue;
+          clearInterval(timer);
+        }
+
+        setCounts(prev => {
+          const newCounts = [...prev];
+          newCounts[index] = Math.floor(currentCount);
+          return newCounts;
+        });
+      }, duration / steps);
+    });
+  };
+
+  const formatNumber = (num) => {
+    return num.toLocaleString();
   };
 
   return (
@@ -42,8 +77,8 @@ export default function CompanyInfo() {
         <div className="row">
           <div className="col">
             <div className="company-qinfo-raaper bg-green d-lg-flex">
-              {/* button info part start */}
-              {button_info.map((item, i) => (
+              {/* stats info part start */}
+              {stats_info.map((item, i) => (
                 <div
                   key={i}
                   className="single-info flex-lg-fill d-flex align-items-center justify-content-center"
@@ -52,37 +87,31 @@ export default function CompanyInfo() {
                     <i className={item.icon} style={{ color: 'white' }} />
                   </div>
                   <div className="info">
-                    <button 
-                      onClick={() => handleButtonClick(item.action)}
-                      className="btn btn-custom"
+                    <div
+                      className="stat-number"
                       style={{
-                        backgroundColor: 'white',
-                        border: '2px solid white',
-                        color: '#333',
-                        padding: '18px 30px',
-                        fontSize: '20px',
+                        color: 'white',
+                        fontSize: '24px',
                         fontWeight: '600',
-                        borderRadius: '8px',
-                        cursor: 'pointer',
-                        transition: 'all 0.3s ease',
-                        transform: 'scale(1)',
-                        boxShadow: '0 4px 15px rgba(255, 255, 255, 0.1)',
-                        position: 'relative',
-                        overflow: 'hidden'
-                      }}
-                      onMouseEnter={(e) => {
-                        e.target.style.boxShadow = '0 8px 25px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.6)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.target.style.boxShadow = '0 4px 15px rgba(255, 255, 255, 0.1)';
+                        marginBottom: '5px'
                       }}
                     >
-                      {item.text}
-                    </button>
+                      {formatNumber(counts[i])}{item.suffix}
+                    </div>
+                    <div
+                      className="stat-label"
+                      style={{
+                        color: 'white',
+                        fontSize: '14px',
+                        fontWeight: '400'
+                      }}
+                    >
+                      {item.label}
+                    </div>
                   </div>
                 </div>
               ))}
-              {/* button info part end */}
+              {/* stats info part end */}
             </div>
           </div>
         </div>

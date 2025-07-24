@@ -5,23 +5,23 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 const progress_data = [
   {
     title: "Service Efficiency",
-    completed: 85,
+    completed: 100,
   },
   {
     title: "Quality Assurance",
-    completed: 92,
+    completed: 100,
   },
   {
     title: "Client Satisfaction",
-    completed: 88,
+    completed: 100,
   },
 ];
 
 export default function Business() {
   const [animatedProgress, setAnimatedProgress] = useState([
-    { title: "Service Efficiency", completed: 0, target: 85 },
-    { title: "Quality Assurance", completed: 0, target: 92 },
-    { title: "Client Satisfaction", completed: 0, target: 88 },
+    { title: "Service Efficiency", completed: 0, target: 100 },
+    { title: "Quality Assurance", completed: 0, target: 100 },
+    { title: "Client Satisfaction", completed: 0, target: 100 },
   ]);
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -131,7 +131,7 @@ export default function Business() {
   return (
     <section ref={sectionRef} className="business-sec sec-ptb bg-light-greem">
       <div className="container">
-        <div className="row">
+        <div className="row align-items-center">
           <div className="col-lg-6">
             <div className="sec-content h-100 d-flex justify-content-center flex-column">
               <h6
@@ -140,20 +140,19 @@ export default function Business() {
               >
                 Smart Solutions
               </h6>
-              <h2
-                className={`sec-title ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+              <div
+                className={`content-section ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
                 style={{ animationDelay: '0.2s' }}
               >
-                Transform Your Cleaning Operations with AI-Powered Intelligence
-              </h2>
-              <p
-                className={`sec-text ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-                style={{ animationDelay: '0.3s' }}
-              >
-                Revolutionize hygiene and facility management through our next-generation
-                AI-based SaaS platform. Streamline operations, enhance transparency, and
-                deliver real-time intelligence across both public and private sector ecosystems.
-              </p>
+                <h2 className="sec-title">
+                  Transform Your Cleaning Operations with AI-Powered Intelligence
+                </h2>
+                <p className="sec-text">
+                  Revolutionize hygiene and facility management through our next-generation
+                  AI-based SaaS platform. Streamline operations, enhance transparency, and
+                  deliver real-time intelligence across both public and private sector ecosystems.
+                </p>
+              </div>
               {/* progressbar part start */}
               {animatedProgress?.map((item, i) => (
                 <div
@@ -178,25 +177,17 @@ export default function Business() {
           </div>
           <div className="col-lg-6 tab-col-gap">
             <div
-              className={`sec-images wow fadeInRight ${isVisible ? 'animate-fade-in-right' : 'opacity-0'}`}
+              className={`sec-images d-flex justify-content-center align-items-center wow fadeInRight ${isVisible ? 'animate-fade-in-right' : 'opacity-0'}`}
               data-wow-delay="500ms"
               data-wow-duration="1500ms"
               style={{ animationDelay: '0.2s' }}
             >
-              <div className="sec-img-one h-100">
+              <div className="sec-img-main">
                 <DotLottieReact
                   src="https://lottie.host/4aed34ec-5ec9-487d-9623-f4280ae2642d/t6Jd1Ghn0j.lottie"
                   loop
                   autoplay
-                  className="h-100"
-                />
-              </div>
-              <div className="sec-img-two">
-                <DotLottieReact
-                  src="https://lottie.host/4f6ea43b-4891-4a24-8162-4550fa9fe3f4/E3zeIeq9sa.lottie"
-                  loop
-                  autoplay
-                  className="h-100"
+                  className="lottie-animation"
                 />
               </div>
             </div>
@@ -245,6 +236,65 @@ export default function Business() {
         
         .ui-progressbar {
           transition: all 0.3s ease;
+        }
+        
+        .sec-images {
+          height: 100%;
+          min-height: 400px;
+        }
+        
+        .sec-img-main {
+          width: 100%;
+          max-width: 450px;
+          height: 400px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        .lottie-animation {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+        
+        .content-section {
+          text-align: justify;
+          line-height: 1.6;
+        }
+        
+        .content-section .sec-title {
+          text-align: justify;
+          line-height: 1.4;
+          margin-bottom: 20px;
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: #333;
+        }
+        
+        .content-section .sec-text {
+          text-align: justify;
+          line-height: 1.6;
+          margin: 0;
+        }
+        
+        .row.align-items-center {
+          align-items: center !important;
+        }
+        
+        @media (max-width: 991px) {
+          .sec-img-main {
+            max-width: 350px;
+            height: 300px;
+            margin: 30px auto;
+          }
+        }
+        
+        @media (max-width: 767px) {
+          .sec-img-main {
+            max-width: 280px;
+            height: 250px;
+          }
         }
       `}</style>
     </section>

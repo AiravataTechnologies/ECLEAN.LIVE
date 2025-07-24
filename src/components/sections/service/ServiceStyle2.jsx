@@ -1,4 +1,5 @@
 import ServiceCard from "../../ui/cards/ServiceCard";
+import AutomationFeatures from "../automationFeatures/AutomationFeatures";
 
 const FeatureCard = ({ text }) => (
   <div className="col-sm-6 col-12">
@@ -99,6 +100,50 @@ export default function ServiceStyle2({ data }) {
           box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
         }
 
+        .automation-section {
+          margin-top: 5rem !important;
+          padding: 4rem 0 !important;
+          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+          border-radius: 20px !important;
+          position: relative !important;
+          overflow: hidden !important;
+        }
+
+        .automation-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+            radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
+          pointer-events: none;
+        }
+
+        .automation-title {
+          position: relative;
+          z-index: 2;
+          font-size: 2.5rem !important;
+          font-weight: 800 !important;
+          text-align: center !important;
+          margin-bottom: 3rem !important;
+          color: #333 !important;
+        }
+
+        .automation-subtitle {
+          position: relative;
+          z-index: 2;
+          font-size: 1.2rem !important;
+          text-align: center !important;
+          color: #666 !important;
+          margin-bottom: 3rem !important;
+          max-width: 600px !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+
         /* Mobile Styles */
         @media (max-width: 576px) {
           .service-sec2 {
@@ -162,6 +207,23 @@ export default function ServiceStyle2({ data }) {
             order: 1 !important;
             margin-bottom: 20px !important;
           }
+
+          .automation-section {
+            margin-top: 3rem !important;
+            padding: 2rem 0 !important;
+            border-radius: 15px !important;
+          }
+
+          .automation-title {
+            font-size: 1.8rem !important;
+            margin-bottom: 2rem !important;
+          }
+
+          .automation-subtitle {
+            font-size: 1rem !important;
+            margin-bottom: 2rem !important;
+            padding: 0 15px !important;
+          }
         }
 
         /* Tablet Styles */
@@ -178,6 +240,14 @@ export default function ServiceStyle2({ data }) {
           .row.align-items-center {
             margin-bottom: 3.5rem !important;
           }
+
+          .automation-title {
+            font-size: 2.2rem !important;
+          }
+
+          .automation-subtitle {
+            font-size: 1.1rem !important;
+          }
         }
 
         /* Medium Tablet */
@@ -188,6 +258,10 @@ export default function ServiceStyle2({ data }) {
 
           .feature-card-container > div > div {
             height: 95px !important;
+          }
+
+          .automation-title {
+            font-size: 2.3rem !important;
           }
         }
 
@@ -364,6 +438,24 @@ export default function ServiceStyle2({ data }) {
                 playsInline
                 className="video-responsive"
               />
+            </div>
+          </div>
+
+          {/* Automation Section */}
+          <div className="automation-section">
+            <div className="container">
+              <h2 className="automation-title">
+                AI-Powered <span style={{
+                  background: 'linear-gradient(45deg, #3b82f6, #22c55e)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}>Automation</span> Platform
+              </h2>
+              <p className="automation-subtitle">
+                Experience the future of cleaning and hygiene management with our intelligent automation system that streamlines operations and enhances productivity.
+              </p>
+              <AutomationFeatures />
             </div>
           </div>
 

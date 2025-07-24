@@ -6,11 +6,11 @@ import Hero from "../../components/sections/hero/Hero";
 import LatestBlog from "../../components/sections/latestBlog/LatestBlog";
 import Newslatter from "../../components/sections/newsletter/Newsletter";
 import WhyChooseUs from "../../components/sections/whyChooseUs/WhyChooseUs";
-import AutomationFeatures from "../../components/sections/automationFeatures/AutomationFeatures";
+// import AutomationFeatures from "../../components/sections/automationFeatures/AutomationFeatures";
 import Pricing from "../../components/sections/pricing/Pricing";
 import Service from "../../components/sections/service/Service";
 import Testimonial from "../../components/sections/testimonial/Testimonial";
-import WhoWeServe from "../../components/sections/whoWeServe/WhoWeServe"; // Add this import
+import WhoWeServe from "../../components/sections/whoWeServe/WhoWeServe";
 
 export default function HomePage() {
   return (
@@ -23,9 +23,8 @@ export default function HomePage() {
       <Business />
       <CompanyInfo />
       <Pricing />
-      <WhoWeServe /> {/* Add this component between Pricing and Brand */}
-      <Brand />
-      <AutomationFeatures />
+      <WhoWeServe />
+      {/* <AutomationFeatures /> */}
       <Testimonial />
       <LatestBlog bg_color="bg-light-greem" />
     </>

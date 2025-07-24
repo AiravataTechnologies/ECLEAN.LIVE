@@ -1,4 +1,4 @@
-// Service.js - Mobile Responsive Version
+// Service.js - Fixed Alignment Version
 import { Link } from "react-router-dom";
 import { services_2 } from "../../../data/site";
 import Media3Video from "../../../assets/videos/Media3.mp4";
@@ -15,7 +15,7 @@ export default function Service() {
           transition: all 0.3s ease !important;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
           border: 1px solid rgba(76, 175, 80, 0.1) !important;
-          height: 320px !important;
+          height: 340px !important;
           display: flex !important;
           flex-direction: column !important;
         }
@@ -28,15 +28,16 @@ export default function Service() {
         
         .service-image-container {
           width: 100% !important;
-          height: 120px !important;
+          height: 130px !important;
           border-radius: 12px !important;
           overflow: hidden !important;
-          margin-bottom: 15px !important;
+          margin-bottom: 16px !important;
           background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
           display: flex !important;
           align-items: center !important;
           justify-content: center !important;
           position: relative !important;
+          flex-shrink: 0 !important;
         }
         
         .service-image {
@@ -50,20 +51,24 @@ export default function Service() {
           flex: 1 !important;
           display: flex !important;
           flex-direction: column !important;
+          justify-content: space-between !important;
         }
         
         .service-card h4 {
           font-size: 18px !important;
           font-weight: 600 !important;
           color: #333 !important;
-          margin-bottom: 8px !important;
+          margin-bottom: 10px !important;
           line-height: 1.3 !important;
+          min-height: 48px !important;
+          display: flex !important;
+          align-items: center !important;
         }
         
         .service-card p {
           color: #666 !important;
-          line-height: 1.5 !important;
-          margin-bottom: 15px !important;
+          line-height: 1.4 !important;
+          margin-bottom: 12px !important;
           flex: 1 !important;
           font-size: 13px !important;
           display: -webkit-box !important;
@@ -79,7 +84,8 @@ export default function Service() {
           font-weight: 500 !important;
           text-decoration: none !important;
           transition: all 0.3s ease !important;
-          margin-top: auto !important;
+          margin-top: 4px !important;
+          align-self: flex-start !important;
         }
         
         .service-card-link:hover {
@@ -93,10 +99,10 @@ export default function Service() {
         }
 
         .video-container {
-          margin-top: 40px !important;
+          margin-top: 25px !important;
           position: relative !important;
           width: 100% !important;
-          max-width: 600px !important;
+          max-width: 100% !important;
           border-radius: 16px !important;
           overflow: hidden !important;
           box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2) !important;
@@ -128,17 +134,38 @@ export default function Service() {
         }
 
         .sec-content {
-          padding: 0 10px !important;
+          padding: 0 !important;
+          padding-right: 30px !important;
+          text-align: left !important;
         }
 
         .sec-title {
-          font-size: 2.5rem !important;
+          font-size: 2.2rem !important;
           line-height: 1.2 !important;
+          margin-bottom: 20px !important;
+          text-align: left !important;
         }
 
         .sec-text {
           font-size: 1rem !important;
           line-height: 1.6 !important;
+          margin-bottom: 25px !important;
+          text-align: left !important;
+        }
+
+        .sec-sub-title {
+          text-align: left !important;
+        }
+
+        .sec-btn {
+          margin-bottom: 15px !important;
+          text-align: left !important;
+        }
+
+        .thm-btn {
+          padding: 12px 24px !important;
+          font-size: 0.9rem !important;
+          border-radius: 8px !important;
         }
 
         /* Mobile Styles */
@@ -149,28 +176,36 @@ export default function Service() {
 
           .sec-content {
             padding: 0 15px !important;
-            text-align: center !important;
+            text-align: left !important;
           }
 
           .sec-title {
-            font-size: 1.8rem !important;
-            margin-bottom: 15px !important;
+            font-size: 1.6rem !important;
+            margin-bottom: 12px !important;
+            text-align: left !important;
           }
 
           .sec-sub-title {
-            font-size: 0.9rem !important;
-            margin-bottom: 10px !important;
+            font-size: 0.85rem !important;
+            margin-bottom: 8px !important;
+            text-align: left !important;
           }
 
           .sec-text {
-            font-size: 0.9rem !important;
-            margin-bottom: 20px !important;
-            line-height: 1.5 !important;
+            font-size: 0.85rem !important;
+            margin-bottom: 15px !important;
+            line-height: 1.4 !important;
+            text-align: left !important;
+          }
+
+          .sec-btn {
+            margin-bottom: 10px !important;
+            text-align: left !important;
           }
 
           .video-container {
             max-width: 100% !important;
-            margin-top: 25px !important;
+            margin-top: 20px !important;
             border-radius: 12px !important;
           }
 
@@ -187,17 +222,25 @@ export default function Service() {
           .service-card {
             padding: 15px !important;
             height: auto !important;
-            min-height: 250px !important;
+            min-height: 280px !important;
           }
 
           .service-card h4 {
             font-size: 16px !important;
-            margin-bottom: 6px !important;
+            margin-bottom: 8px !important;
+            min-height: 40px !important;
           }
 
           .service-card p {
             font-size: 12px !important;
             -webkit-line-clamp: 2 !important;
+            margin-bottom: 8px !important;
+          }
+          
+          .service-card-link {
+            padding-top: 0px !important;
+            font-size: 13px !important;
+            margin-top: 4px !important;
           }
           
           .service-image-container {
@@ -206,20 +249,30 @@ export default function Service() {
           }
 
           .thm-btn {
-            padding: 12px 20px !important;
-            font-size: 0.9rem !important;
+            padding: 10px 18px !important;
+            font-size: 0.85rem !important;
           }
         }
 
         /* Tablet Styles */
         @media (min-width: 577px) and (max-width: 768px) {
           .sec-title {
-            font-size: 2.2rem !important;
+            font-size: 2rem !important;
+            text-align: left !important;
+          }
+
+          .sec-text {
+            font-size: 0.9rem !important;
+            text-align: left !important;
+          }
+
+          .sec-content {
+            text-align: left !important;
           }
 
           .video-container {
-            max-width: 100% !important;
-            margin-top: 30px !important;
+            max-width: 450px !important;
+            margin-top: 25px !important;
           }
           
           .services-grid {
@@ -229,7 +282,12 @@ export default function Service() {
           
           .service-card {
             padding: 18px !important;
-            height: 300px !important;
+            height: 320px !important;
+          }
+          
+          .service-card-link {
+            padding-top: 0px !important;
+            margin-top: 6px !important;
           }
           
           .service-image-container {
@@ -245,7 +303,16 @@ export default function Service() {
           }
 
           .service-card {
-            height: 310px !important;
+            height: 330px !important;
+          }
+
+          .service-card-link {
+            padding-top: 0px !important;
+            margin-top: 6px !important;
+          }
+
+          .sec-text {
+            font-size: 0.9rem !important;
           }
         }
 
@@ -254,6 +321,27 @@ export default function Service() {
           .services-grid {
             grid-template-columns: repeat(3, 1fr) !important;
             gap: 20px !important;
+          }
+
+          .service-card-link {
+            padding-top: 0px !important;
+            margin-top: 6px !important;
+          }
+        }
+
+        /* Desktop optimizations */
+        @media (min-width: 1201px) {
+          .sec-content {
+            padding-right: 40px !important;
+          }
+          
+          .video-container {
+            max-width: 100% !important;
+          }
+
+          .service-card-link {
+            padding-top: 0px !important;
+            margin-top: 6px !important;
           }
         }
 
@@ -279,9 +367,7 @@ export default function Service() {
               <p className="sec-text">
                 Our comprehensive platform combines cutting-edge technology with
                 industry expertise to deliver powerful features that transform how
-                you manage hygiene and cleaning operations. From intelligent automation
-                to real-time insights, every feature is designed to maximize efficiency
-                and ensure superior service quality.
+                you manage hygiene and cleaning operations.
               </p>
               <div className="sec-btn">
                 <Link to="/services" className="thm-btn">
@@ -335,5 +421,3 @@ export default function Service() {
     </section>
   );
 }
-
-// ServiceStyle2.js - Mobile Responsive Version

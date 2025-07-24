@@ -34,7 +34,7 @@ export default function AICleaningPlatform() {
 
   return (
     <section className="responsive-section" style={{
-      padding: '100px 0',
+      padding: '10px 0', // Further reduced from 20px to 10px
       background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
       position: 'relative',
       overflow: 'hidden'
@@ -101,7 +101,7 @@ export default function AICleaningPlatform() {
             maxWidth: isMobile ? '100%' : '41.666667%',
             padding: '0 15px',
             paddingRight: isMobile ? '15px' : '20px',
-            marginBottom: isMobile ? '50px' : '0',
+            marginBottom: isMobile ? '10px' : '0', // Further reduced from 20px to 10px
             transform: isVisible ? 'translateX(0)' : 'translateX(-50px)',
             opacity: isVisible ? 1 : 0,
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
@@ -111,8 +111,9 @@ export default function AICleaningPlatform() {
               display: 'flex',
               justifyContent: isMobile ? 'center' : 'flex-start',
               height: isMobile ? 'auto' : '600px',
-              minHeight: isMobile ? '500px' : '600px',
-              overflow: 'visible'
+              minHeight: isMobile ? '400px' : '600px',
+              overflow: 'visible',
+              width: '100%'
             }}>
               {/* Main Phone */}
               <div className="main-phone" style={{
@@ -125,7 +126,8 @@ export default function AICleaningPlatform() {
                 position: 'relative',
                 zIndex: 20,
                 marginLeft: isMobile ? '0' : '20px',
-                width: isMobile ? '280px' : 'auto',
+                width: isMobile ? '100%' : 'auto',
+                maxWidth: isMobile ? '100%' : 'none',
                 alignSelf: isMobile ? 'center' : 'flex-start',
                 flexShrink: 0
               }}
@@ -136,8 +138,10 @@ export default function AICleaningPlatform() {
                   background: 'white',
                   borderRadius: '2.5rem',
                   overflow: 'hidden',
-                  width: '280px',
-                  height: '560px'
+                  width: isMobile ? '100%' : '280px',
+                  maxWidth: isMobile ? '280px' : '280px',
+                  height: isMobile ? '450px' : '560px',
+                  minHeight: isMobile ? '450px' : '560px'
                 }}>
                   {/* Phone Header */}
                   <div style={{
@@ -149,12 +153,12 @@ export default function AICleaningPlatform() {
                     <h3 style={{ fontWeight: 'bold', fontSize: '14px', margin: 0 }}>Contract Details</h3>
                   </div>
 
-                  <div style={{ padding: '16px', fontSize: '14px' }}>
-                    <div style={{ marginBottom: '16px' }}>
-                      <div style={{ marginBottom: '8px' }}>
+                  <div style={{ padding: '12px', fontSize: '13px' }}>
+                    <div style={{ marginBottom: '12px' }}>
+                      <div style={{ marginBottom: '6px' }}>
                         <span style={{ fontWeight: '600', color: '#1f2937' }}>Contract Name:</span>
                       </div>
-                      <div style={{ color: '#6b7280', marginBottom: '8px' }}>Hygiene & Cleaning Solutions</div>
+                      <div style={{ color: '#6b7280', marginBottom: '6px' }}>Hygiene & Cleaning Solutions</div>
                       <div>
                         <span style={{ fontWeight: '600', color: '#1f2937' }}>Status:</span>{' '}
                         <span style={{ color: '#22c55e', fontWeight: '500' }}>Active</span>
@@ -163,18 +167,18 @@ export default function AICleaningPlatform() {
 
                     <div style={{
                       background: '#fed7aa',
-                      padding: '12px',
+                      padding: '10px',
                       borderRadius: '8px',
-                      marginBottom: '16px'
+                      marginBottom: '12px'
                     }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
                         <div style={{
-                          width: '32px',
-                          height: '32px',
+                          width: '28px',
+                          height: '28px',
                           background: '#f97316',
                           borderRadius: '50%',
                           color: 'white',
-                          fontSize: '12px',
+                          fontSize: '11px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -182,14 +186,14 @@ export default function AICleaningPlatform() {
                         }}>AI</div>
                         <div>
                           <div style={{ fontWeight: '600', color: '#1f2937' }}>AI Plus Cleaning</div>
-                          <div style={{ fontSize: '12px', color: '#6b7280' }}>Smart Hygiene Solutions</div>
+                          <div style={{ fontSize: '11px', color: '#6b7280' }}>Smart Hygiene Solutions</div>
                         </div>
                       </div>
                     </div>
 
-                    <div style={{ marginBottom: '16px' }}>
-                      <div style={{ fontWeight: '600', marginBottom: '8px', color: '#1f2937' }}>Service Tasks:</div>
-                      <ul style={{ fontSize: '12px', color: '#6b7280', paddingLeft: '8px', margin: 0 }}>
+                    <div style={{ marginBottom: '12px' }}>
+                      <div style={{ fontWeight: '600', marginBottom: '6px', color: '#1f2937' }}>Service Tasks:</div>
+                      <ul style={{ fontSize: '11px', color: '#6b7280', paddingLeft: '8px', margin: 0 }}>
                         <li>• Deep Cleaning & Sanitization</li>
                         <li>• Floor Maintenance & Polishing</li>
                         <li>• Washroom Hygiene Management</li>
@@ -200,9 +204,9 @@ export default function AICleaningPlatform() {
                     <div style={{
                       display: 'grid',
                       gridTemplateColumns: '1fr 1fr',
-                      gap: '16px',
-                      fontSize: '12px',
-                      marginBottom: '16px'
+                      gap: '12px',
+                      fontSize: '11px',
+                      marginBottom: '12px'
                     }}>
                       <div>
                         <span style={{ fontWeight: '600', color: '#1f2937' }}>Start Date:</span><br />
@@ -217,12 +221,12 @@ export default function AICleaningPlatform() {
                     <div style={{
                       background: '#22c55e',
                       color: 'white',
-                      padding: '8px 12px',
+                      padding: '6px 10px',
                       borderRadius: '8px',
                       textAlign: 'center',
                       fontWeight: '600',
-                      fontSize: '14px',
-                      marginBottom: '16px'
+                      fontSize: '13px',
+                      marginBottom: '12px'
                     }}>
                       Active Contract
                     </div>
@@ -230,27 +234,27 @@ export default function AICleaningPlatform() {
                     <div style={{
                       display: 'grid',
                       gridTemplateColumns: '1fr 1fr',
-                      gap: '16px',
+                      gap: '12px',
                       textAlign: 'center',
-                      marginBottom: '16px'
+                      marginBottom: '12px'
                     }}>
-                      <div style={{ background: '#dcfce7', padding: '8px', borderRadius: '6px' }}>
-                        <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#22c55e' }}>8</div>
-                        <div style={{ fontSize: '12px', color: '#6b7280' }}>Assigned</div>
+                      <div style={{ background: '#dcfce7', padding: '6px', borderRadius: '6px' }}>
+                        <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#22c55e' }}>8</div>
+                        <div style={{ fontSize: '11px', color: '#6b7280' }}>Assigned</div>
                       </div>
-                      <div style={{ background: '#fed7aa', padding: '8px', borderRadius: '6px' }}>
-                        <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#f97316' }}>2</div>
-                        <div style={{ fontSize: '12px', color: '#6b7280' }}>Pending</div>
+                      <div style={{ background: '#fed7aa', padding: '6px', borderRadius: '6px' }}>
+                        <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#f97316' }}>2</div>
+                        <div style={{ fontSize: '11px', color: '#6b7280' }}>Pending</div>
                       </div>
                     </div>
 
                     <div style={{
                       background: 'linear-gradient(90deg, #dcfce7, #dbeafe)',
-                      padding: '8px 12px',
+                      padding: '6px 10px',
                       borderRadius: '8px'
                     }}>
-                      <div style={{ fontWeight: '600', fontSize: '14px', color: '#1f2937' }}>AI Status Monitor</div>
-                      <div style={{ fontSize: '12px', color: '#6b7280' }}>Real-time tracking active</div>
+                      <div style={{ fontWeight: '600', fontSize: '13px', color: '#1f2937' }}>AI Status Monitor</div>
+                      <div style={{ fontSize: '11px', color: '#6b7280' }}>Real-time tracking active</div>
                     </div>
                   </div>
                 </div>
@@ -375,7 +379,7 @@ export default function AICleaningPlatform() {
             opacity: isVisible ? 1 : 0,
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s'
           }}>
-            <div style={{ marginBottom: '40px' }}>
+            <div style={{ marginBottom: '10px' }}> {/* Further reduced from 20px to 10px */}
               <span style={{
                 display: 'inline-block',
                 background: 'linear-gradient(90deg, #3b82f6, #22c55e)',
@@ -386,7 +390,7 @@ export default function AICleaningPlatform() {
                 fontWeight: '600',
                 textTransform: 'uppercase',
                 letterSpacing: '1px',
-                marginBottom: '20px',
+                marginBottom: '5px', // Further reduced from 10px to 5px
                 animation: 'pulse 2s infinite, shimmer 3s ease-in-out infinite',
                 transform: isVisible ? 'scale(1)' : 'scale(0.8)',
                 transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s'
@@ -398,7 +402,7 @@ export default function AICleaningPlatform() {
                 fontWeight: '800',
                 color: '#333',
                 lineHeight: '1.2',
-                marginBottom: '20px',
+                marginBottom: '5px', // Further reduced from 10px to 5px
                 textShadow: '2px 2px 4px rgba(0, 0, 0, 0.05)',
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
                 opacity: isVisible ? 1 : 0,
@@ -418,7 +422,7 @@ export default function AICleaningPlatform() {
                 fontSize: isMobile ? '16px' : '18px',
                 color: '#666',
                 lineHeight: '1.6',
-                marginBottom: '30px',
+                marginBottom: '10px', // Further reduced from 15px to 10px
                 transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
                 opacity: isVisible ? 1 : 0,
                 transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s'
@@ -554,13 +558,39 @@ export default function AICleaningPlatform() {
         }
         
         /* Mobile Responsive Styles */
+        @media (max-width: 1200px) {
+          .main-phone {
+            width: 100% !important;
+            max-width: 280px !important;
+            margin: 0 auto !important;
+          }
+          
+          .main-phone > div {
+            width: 100% !important;
+            max-width: 280px !important;
+            height: 450px !important;
+          }
+        }
+        
         @media (max-width: 991px) {
           .responsive-section {
-            padding: 80px 0 !important;
+            padding: 8px 0 !important; /* Further reduced from 15px */
+          }
+          
+          .main-phone {
+            width: 100% !important;
+            max-width: 270px !important;
+            margin: 0 auto !important;
+          }
+          
+          .main-phone > div {
+            width: 100% !important;
+            max-width: 270px !important;
+            height: 430px !important;
           }
           
           .responsive-mockups {
-            min-height: 500px !important;
+            min-height: 430px !important;
             overflow: visible !important;
           }
           
@@ -578,28 +608,31 @@ export default function AICleaningPlatform() {
         
         @media (max-width: 768px) {
           .responsive-section {
-            padding: 60px 0 !important;
+            padding: 5px 0 !important;
           }
           
           .responsive-container {
-            padding: 0 20px !important;
-          }
-          
-          .responsive-row {
-            margin: 0 -10px !important;
-          }
-          
-          .responsive-col {
             padding: 0 10px !important;
           }
           
+          .responsive-row {
+            margin: 0 -5px !important;
+          }
+          
+          .responsive-col {
+            padding: 0 5px !important;
+          }
+          
           .main-phone {
-            width: 250px !important;
+            width: 100% !important;
+            max-width: 260px !important;
+            margin: 0 auto !important;
           }
           
           .main-phone > div {
-            width: 250px !important;
-            height: 500px !important;
+            width: 100% !important;
+            max-width: 260px !important;
+            height: 400px !important;
           }
           
           .responsive-grid {
@@ -610,28 +643,31 @@ export default function AICleaningPlatform() {
         
         @media (max-width: 576px) {
           .responsive-section {
-            padding: 50px 0 !important;
+            padding: 3px 0 !important;
           }
           
           .responsive-container {
-            padding: 0 15px !important;
+            padding: 0 8px !important;
           }
           
           .main-phone {
-            width: 220px !important;
+            width: 100% !important;
+            max-width: 240px !important;
+            margin: 0 auto !important;
           }
           
           .main-phone > div {
-            width: 220px !important;
-            height: 440px !important;
+            width: 100% !important;
+            max-width: 240px !important;
+            height: 380px !important;
           }
           
           .main-phone > div > div:first-child {
-            padding: 10px 12px !important;
+            padding: 8px 12px !important;
           }
           
           .main-phone > div > div:last-child {
-            padding: 12px !important;
+            padding: 10px !important;
             font-size: 12px !important;
           }
           
@@ -650,12 +686,15 @@ export default function AICleaningPlatform() {
         
         @media (max-width: 480px) {
           .main-phone {
-            width: 200px !important;
+            width: 100% !important;
+            max-width: 220px !important;
+            margin: 0 auto !important;
           }
           
           .main-phone > div {
-            width: 200px !important;
-            height: 400px !important;
+            width: 100% !important;
+            max-width: 220px !important;
+            height: 360px !important;
           }
           
           .responsive-title {

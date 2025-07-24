@@ -163,11 +163,9 @@ const WhoWeServe = () => {
                 transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s'
               }}>
                 Who we <span style={{
-                  background: 'linear-gradient(45deg, #28a745, #20c997)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  animation: 'textGlow 2s ease-in-out infinite alternate'
+                  color: '#28a745',
+                  textShadow: '0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6), 0 0 35px rgba(255, 255, 255, 0.4)',
+                  animation: 'whiteGlow 2s ease-in-out infinite alternate'
                 }}>Serve</span>?
               </h2>
               <p className="responsive-description" style={{
@@ -201,24 +199,39 @@ const WhoWeServe = () => {
                     onMouseEnter={() => setHoveredCard(index)}
                     onMouseLeave={() => setHoveredCard(null)}
                     style={{
-                      background: card.gradient,
+                      background: hoveredCard === index
+                        ? 'linear-gradient(135deg, #2eb84e, #22d4a3)'
+                        : card.gradient,
                       color: 'white',
                       padding: '25px 20px',
                       borderRadius: '18px',
                       boxShadow: hoveredCard === index
-                        ? '0 25px 60px rgba(40, 167, 69, 0.4)'
-                        : '0 15px 40px rgba(0, 0, 0, 0.2)',
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                        ? '0 30px 70px rgba(40, 167, 69, 0.5), 0 10px 30px rgba(40, 167, 69, 0.3)'
+                        : '0 20px 50px rgba(40, 167, 69, 0.3), 0 8px 25px rgba(0, 0, 0, 0.15)',
+                      border: '2px solid rgba(255, 255, 255, 0.25)',
                       animation: `slideInUp 0.6s ease-out both ${card.delay}`,
                       transform: hoveredCard === index
-                        ? 'translateY(-8px) scale(1.02)'
+                        ? 'translateY(-15px) scale(1.05)'
                         : 'translateY(0) scale(1)',
                       transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                       cursor: 'pointer',
                       position: 'relative',
-                      overflow: 'hidden'
+                      overflow: 'hidden',
+                      backdropFilter: 'blur(10px)'
                     }}
                   >
+                    {/* Enhanced glow effect for better visibility */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '-50%',
+                      left: '-50%',
+                      right: '-50%',
+                      bottom: '-50%',
+                      background: 'radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%)',
+                      animation: 'rotate 4s linear infinite',
+                      pointerEvents: 'none'
+                    }}></div>
+
                     {/* Hover shine effect */}
                     <div style={{
                       position: 'absolute',
@@ -226,33 +239,35 @@ const WhoWeServe = () => {
                       left: '-50%',
                       width: '200%',
                       height: '200%',
-                      background: 'linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
+                      background: 'linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
                       transform: hoveredCard === index ? 'translateX(100%)' : 'translateX(-100%)',
                       transition: 'transform 0.6s ease-in-out',
                       pointerEvents: 'none'
                     }}></div>
 
                     <h3 className="responsive-card-title" style={{
-                      fontSize: '16px',
+                      fontSize: '17px',
                       fontWeight: '700',
                       lineHeight: '1.3',
                       margin: '0 0 12px 0',
                       color: 'white',
-                      textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)',
+                      textShadow: '3px 3px 6px rgba(0, 0, 0, 0.5), 1px 1px 3px rgba(0, 0, 0, 0.8)',
                       position: 'relative',
-                      zIndex: 1
+                      zIndex: 1,
+                      filter: 'brightness(1.1) contrast(1.1)'
                     }}>
                       {card.title}
                     </h3>
                     <p className="responsive-card-description" style={{
-                      fontSize: '13px',
-                      fontWeight: '400',
-                      lineHeight: '1.4',
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      lineHeight: '1.5',
                       margin: '0',
-                      color: 'rgba(255, 255, 255, 0.9)',
-                      textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)',
+                      color: 'white',
+                      textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5), 1px 1px 2px rgba(0, 0, 0, 0.7)',
                       position: 'relative',
-                      zIndex: 1
+                      zIndex: 1,
+                      filter: 'brightness(1.05) contrast(1.05)'
                     }}>
                       {card.description}
                     </p>
@@ -355,9 +370,13 @@ const WhoWeServe = () => {
           100% { background-position: 200% center; }
         }
         
-        @keyframes textGlow {
-          0% { text-shadow: 0 0 3px rgba(40, 167, 69, 0.3); }
-          100% { text-shadow: 0 0 8px rgba(40, 167, 69, 0.5), 0 0 12px rgba(32, 201, 151, 0.3); }
+        @keyframes whiteGlow {
+          0% { 
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6), 0 0 35px rgba(255, 255, 255, 0.4);
+          }
+          100% { 
+            text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8), 0 0 45px rgba(255, 255, 255, 0.6);
+          }
         }
         
         @keyframes slideInUp {
@@ -388,6 +407,15 @@ const WhoWeServe = () => {
           }
           50% { 
             filter: hue-rotate(10deg) brightness(1.1); 
+          }
+        }
+        
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
           }
         }
         
@@ -441,6 +469,17 @@ const WhoWeServe = () => {
             padding: 60px 0 !important;
           }
           
+          .responsive-content {
+            order: 1 !important;
+            margin-bottom: 30px !important;
+            text-align: left !important;
+          }
+          
+          .responsive-image {
+            order: 2 !important;
+            margin-bottom: 30px !important;
+          }
+          
           .responsive-grid {
             grid-template-columns: 1fr !important;
             gap: 15px !important;
@@ -449,10 +488,12 @@ const WhoWeServe = () => {
           .responsive-title {
             font-size: 36px !important;
             margin-bottom: 15px !important;
+            text-align: left !important;
           }
           
           .responsive-description {
             font-size: 15px !important;
+            text-align: left !important;
           }
           
           .responsive-card {
@@ -460,11 +501,11 @@ const WhoWeServe = () => {
           }
           
           .responsive-card-title {
-            font-size: 15px !important;
+            font-size: 16px !important;
           }
           
           .responsive-card-description {
-            font-size: 12px !important;
+            font-size: 13px !important;
           }
           
           .responsive-main-image {
@@ -504,10 +545,12 @@ const WhoWeServe = () => {
           
           .responsive-title {
             font-size: 28px !important;
+            text-align: left !important;
           }
           
           .responsive-description {
             font-size: 14px !important;
+            text-align: left !important;
           }
           
           .responsive-card {
@@ -515,11 +558,11 @@ const WhoWeServe = () => {
           }
           
           .responsive-card-title {
-            font-size: 14px !important;
+            font-size: 15px !important;
           }
           
           .responsive-card-description {
-            font-size: 11px !important;
+            font-size: 12px !important;
           }
           
           .responsive-main-image {
@@ -540,6 +583,11 @@ const WhoWeServe = () => {
         @media (max-width: 480px) {
           .responsive-title {
             font-size: 24px !important;
+            text-align: left !important;
+          }
+          
+          .responsive-description {
+            text-align: left !important;
           }
           
           .responsive-card {
