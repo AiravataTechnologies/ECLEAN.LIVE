@@ -45,7 +45,7 @@ export default function Hero() {
                   <span className="play-intro">Play Intro</span>
                 </div>
                 {/* Team info card - hidden on mobile, visible on desktop */}
-                <div className="hero-team-info d-flex align-items-center d-none d-md-flex">
+                {/* <div className="hero-team-info d-flex align-items-center d-none d-md-flex mt-4">
                   <div className="team-members d-flex">
                     {peoples?.map((item, i) => (
                       <div
@@ -72,7 +72,7 @@ export default function Hero() {
                     <span>36k+</span>
                     <p>Team Members</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="col-lg-6">
@@ -184,36 +184,42 @@ export default function Hero() {
                   z-index: 2;
                 }
                 
-                /* Desktop and tablet styles for team info */
+                /* Desktop and tablet styles for team info - FIXED */
                 .hero-team-info {
-                  background: rgba(255, 255, 255, 0.1);
-                  padding: 8px 16px;
-                  border-radius: 25px;
+                  background: rgba(255, 255, 255, 0.15);
                   backdrop-filter: blur(10px);
-                  gap: 12px;
-                  display: flex;
+                  border: 1px solid rgba(255, 255, 255, 0.2);
+                  padding: 12px 20px;
+                  border-radius: 50px;
+                  gap: 15px;
+                  display: inline-flex;
                   align-items: center;
-                  width: fit-content;
+                  width: auto;
+                  max-width: 280px;
+                  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
                 }
                 
                 .total-team-count {
                   display: flex;
-                  align-items: center;
-                  gap: 6px;
+                  flex-direction: column;
+                  align-items: flex-start;
                   white-space: nowrap;
+                  margin-left: 8px;
                 }
                 
                 .total-team-count span {
-                  font-size: 1.2rem;
-                  font-weight: bold;
+                  font-size: 1.1rem;
+                  font-weight: 700;
                   color: white;
                   margin: 0;
+                  line-height: 1.2;
                 }
                 
                 .total-team-count p {
                   margin: 0;
-                  font-size: 0.95rem;
-                  color: white;
+                  font-size: 0.85rem;
+                  color: rgba(255, 255, 255, 0.9);
+                  line-height: 1.2;
                 }
                 
                 .team-members {
@@ -222,12 +228,18 @@ export default function Hero() {
                 }
                 
                 .team-members-img {
-                  width: 38px;
-                  height: 38px;
-                  margin-right: -8px;
-                  border: 2px solid white;
+                  width: 40px;
+                  height: 40px;
+                  margin-right: -10px;
+                  border: 3px solid white;
                   border-radius: 50%;
                   overflow: hidden;
+                  position: relative;
+                  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                }
+                
+                .team-members-img:first-child {
+                  margin-right: -10px;
                 }
                 
                 /* Mobile responsive styles */
@@ -270,14 +282,45 @@ export default function Hero() {
                   }
                   
                   .hero-team-info {
-                    padding: 8px 14px !important;
-                    gap: 10px !important;
-                    min-height: 45px !important;
+                    padding: 10px 16px !important;
+                    gap: 12px !important;
+                    max-width: 250px !important;
                   }
                   
                   .team-members-img {
-                    width: 32px !important;
-                    height: 32px !important;
+                    width: 35px !important;
+                    height: 35px !important;
+                  }
+                  
+                  .total-team-count span {
+                    font-size: 1rem !important;
+                  }
+                  
+                  .total-team-count p {
+                    font-size: 0.8rem !important;
+                  }
+                }
+                
+                /* Large desktop styles */
+                @media (min-width: 1200px) {
+                  .hero-team-info {
+                    padding: 14px 24px;
+                    gap: 18px;
+                    max-width: 320px;
+                  }
+                  
+                  .team-members-img {
+                    width: 45px;
+                    height: 45px;
+                    margin-right: -12px;
+                  }
+                  
+                  .total-team-count span {
+                    font-size: 1.2rem;
+                  }
+                  
+                  .total-team-count p {
+                    font-size: 0.9rem;
                   }
                 }
                 
