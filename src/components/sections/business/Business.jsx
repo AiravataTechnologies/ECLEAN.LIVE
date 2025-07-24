@@ -195,7 +195,7 @@ export default function Business() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .opacity-0 {
           opacity: 0;
         }

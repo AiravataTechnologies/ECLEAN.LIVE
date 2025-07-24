@@ -358,7 +358,7 @@ const WhoWeServe = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes pulse {
           0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
           70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }

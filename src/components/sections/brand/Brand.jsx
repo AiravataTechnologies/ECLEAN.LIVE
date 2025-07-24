@@ -66,7 +66,7 @@ export default function Brand() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .brand-sec {
           padding: 40px 0;
         }

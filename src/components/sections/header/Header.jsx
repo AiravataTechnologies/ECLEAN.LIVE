@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <>
-      <style jsx>{`
+      <style>{`
         /* Mobile responsive fixes */
         .main-header-one__outer {
           padding: 0;
