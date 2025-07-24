@@ -16,10 +16,13 @@ const FeatureCard = ({ text }) => (
         transition: "box-shadow 0.3s ease, filter 0.3s ease",
         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         cursor: "pointer",
-        height: "110px",
+        minHeight: "110px", // Changed from height to minHeight
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        overflow: "visible", // Allow content to be visible
+        wordWrap: "break-word",
+        hyphens: "auto",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow = "0 0 20px rgba(0, 255, 100, 0.6)";
@@ -159,6 +162,28 @@ export default function ServiceStyle2({ data }) {
           margin-bottom: 2rem !important;
         }
 
+        /* Fixed feature card styling to prevent content hiding */
+        .feature-card-container .col-sm-6,
+        .feature-card-container .col-12 {
+          margin-bottom: 15px !important;
+          padding-left: 7.5px !important;
+          padding-right: 7.5px !important;
+        }
+
+        .feature-card-container .col-sm-6 > div,
+        .feature-card-container .col-12 > div {
+          min-height: 110px !important;
+          height: auto !important; /* Allow dynamic height */
+          padding: 15px 20px !important;
+          font-size: 16px !important;
+          line-height: 1.3 !important;
+          word-wrap: break-word !important;
+          hyphens: auto !important;
+          overflow: visible !important; /* Ensure content is visible */
+          white-space: normal !important;
+          text-overflow: visible !important;
+        }
+
         .video-responsive {
           max-width: 100% !important;
           height: auto !important;
@@ -277,12 +302,13 @@ export default function ServiceStyle2({ data }) {
             padding-right: 10px !important;
           }
 
-          /* Better card styling for mobile */
+          /* Better card styling for mobile - FIXED */
           .feature-card-container .col-sm-6 > div,
           .feature-card-container .col-12 > div {
-            height: 80px !important;
-            padding: 8px 15px !important;
-            font-size: 13px !important;
+            min-height: 80px !important;
+            height: auto !important; /* Allow content to expand */
+            padding: 12px 15px !important;
+            font-size: 14px !important;
             border-radius: 12px !important;
             line-height: 1.25 !important;
             font-weight: 500 !important;
@@ -296,6 +322,9 @@ export default function ServiceStyle2({ data }) {
             color: white !important;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
             transition: all 0.3s ease !important;
+            overflow: visible !important; /* Key fix */
+            white-space: normal !important; /* Allow wrapping */
+            text-overflow: visible !important;
           }
 
           .row.align-items-center {
@@ -363,10 +392,14 @@ export default function ServiceStyle2({ data }) {
             margin-bottom: 15px !important;
           }
 
-          .feature-card-container > div > div {
-            height: 95px !important;
+          .feature-card-container .col-sm-6 > div,
+          .feature-card-container .col-12 > div {
+            min-height: 95px !important;
+            height: auto !important; /* Allow dynamic height */
             font-size: 16px !important;
-            padding: 10px 15px !important;
+            padding: 12px 15px !important;
+            overflow: visible !important;
+            white-space: normal !important;
           }
 
           .row.align-items-center {
@@ -405,9 +438,13 @@ export default function ServiceStyle2({ data }) {
             color: #000000 !important;
           }
 
-          .feature-card-container > div > div {
-            height: 105px !important;
+          .feature-card-container .col-sm-6 > div,
+          .feature-card-container .col-12 > div {
+            min-height: 105px !important;
+            height: auto !important;
             font-size: 18px !important;
+            overflow: visible !important;
+            white-space: normal !important;
           }
 
           .video-responsive {
@@ -431,6 +468,14 @@ export default function ServiceStyle2({ data }) {
 
           .app-section-description {
             color: #000000 !important;
+          }
+
+          .feature-card-container .col-sm-6 > div,
+          .feature-card-container .col-12 > div {
+            overflow: visible !important;
+            white-space: normal !important;
+            height: auto !important;
+            min-height: 110px !important;
           }
 
           .video-responsive {

@@ -32,35 +32,36 @@ export const services = [
 export const services_2 = [
     {
         imgUrl: "/images/service/aidriven_hygiene.png",
-        title: "AI-Driven Facility & Hygiene",
-        brief: "Task creation, audit tracking, and compliance monitoring all backed by AI powered automation.",
+        title: "AI Hygiene Monitoring",
+        brief: "Create tasks, audits, and ensure hygiene with AI-based automation.",
     },
     {
         imgUrl: "/images/service/endtoend.png",
-        title: "End-to-End Service Automation",
-        brief: "From lead to invoice, automate every service lifecycle stage with audit, task feedback.",
+        title: "Service Automation",
+        brief: "Automate the full workflow from lead to invoice with smart tracking.",
     },
     {
         imgUrl: "/images/service/geoattendance.png",
-        title: "Geo-Attendance & Scheduling",
-        brief: "Enable GPS-based check-ins, skill-based assignments, and real-time progress tracking.",
+        title: "Geo Attendance",
+        brief: "GPS check-ins, skill mapping, and real-time task tracking made easy.",
     },
     {
         imgUrl: "/images/service/qr.png",
-        title: "QR Code Feedback & Ratings",
-        brief: "Gather instant feedback and service ratings via unique QR codes at each location.",
+        title: "QR Feedback",
+        brief: "Get instant service feedback through scannable QR codes.",
     },
     {
         imgUrl: "/images/service/worker.png",
-        title: "Worker & Supervisor Apps",
-        brief: "Empower workforce with task access, feedback, leave, and tracking in one unified mobile app.",
+        title: "Workforce App",
+        brief: "Unified app for workers to access tasks, feedback, and leave.",
     },
     {
         imgUrl: "/images/service/client.png",
-        title: "Client Dashboard",
-        brief: "Centralized insights with performance KPIs, ticket status, and service history for all locations.",
+        title: "Client Insights",
+        brief: "Track performance, tickets, and history with live dashboards.",
     }
 ];
+
 
 export const services_3 = [
     {
