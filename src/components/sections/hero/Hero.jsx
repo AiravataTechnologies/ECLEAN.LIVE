@@ -185,7 +185,53 @@ export default function Hero() {
                   z-index: 2;
                 }
                 
-                /* Mobile responsive animations */
+                /* Desktop and tablet styles for team info */
+                .hero-team-info {
+                  background: rgba(255, 255, 255, 0.1);
+                  padding: 8px 16px;
+                  border-radius: 25px;
+                  backdrop-filter: blur(10px);
+                  gap: 12px;
+                  display: flex;
+                  align-items: center;
+                  width: fit-content;
+                }
+                
+                .total-team-count {
+                  display: flex;
+                  align-items: center;
+                  gap: 6px;
+                  white-space: nowrap;
+                }
+                
+                .total-team-count span {
+                  font-size: 1.2rem;
+                  font-weight: bold;
+                  color: white;
+                  margin: 0;
+                }
+                
+                .total-team-count p {
+                  margin: 0;
+                  font-size: 0.95rem;
+                  color: white;
+                }
+                
+                .team-members {
+                  display: flex;
+                  flex-shrink: 0;
+                }
+                
+                .team-members-img {
+                  width: 38px;
+                  height: 38px;
+                  margin-right: -8px;
+                  border: 2px solid white;
+                  border-radius: 50%;
+                  overflow: hidden;
+                }
+                
+                /* Mobile responsive styles */
                 @media (max-width: 768px) {
                   .hero-action-buttons {
                     flex-direction: column;
@@ -200,6 +246,88 @@ export default function Hero() {
                   
                   .action-btn:hover {
                     transform: scale(1.05);
+                  }
+                  
+                  /* Fix for hero-info-img (eClean.live logo card) */
+                  .hero-info-img.feature-two {
+                    padding: 8px !important;
+                    border-radius: 8px !important;
+                  }
+                  
+                  .hero-info-img.feature-two img {
+                    width: 120px !important;
+                    height: auto !important;
+                  }
+                  
+                  /* Updated team members card - single line, reduced height */
+                  .hero-team-info {
+                    background: rgba(255, 255, 255, 0.1) !important;
+                    padding: 6px 12px !important;
+                    border-radius: 20px !important;
+                    backdrop-filter: blur(10px) !important;
+                    gap: 10px !important;
+                    height: auto !important;
+                    min-height: 40px !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    width: fit-content !important;
+                  }
+                  
+                  .total-team-count {
+                    display: flex !important;
+                    align-items: center !important;
+                    gap: 5px !important;
+                    flex-direction: row !important;
+                    white-space: nowrap !important;
+                  }
+                  
+                  .total-team-count span {
+                    font-size: 1rem !important;
+                    font-weight: bold !important;
+                    color: white !important;
+                    margin: 0 !important;
+                  }
+                  
+                  .total-team-count p {
+                    margin: 0 !important;
+                    font-size: 0.85rem !important;
+                    color: white !important;
+                  }
+                  
+                  .team-members {
+                    flex-shrink: 0 !important;
+                    display: flex !important;
+                  }
+                  
+                  .team-members-img {
+                    width: 28px !important;
+                    height: 28px !important;
+                    margin-right: -6px !important;
+                    border: 2px solid white !important;
+                    border-radius: 50% !important;
+                    overflow: hidden !important;
+                  }
+                }
+                
+                /* Tablet responsive styles */
+                @media (min-width: 769px) and (max-width: 992px) {
+                  .hero-info-img.feature-two {
+                    padding: 10px !important;
+                  }
+                  
+                  .hero-info-img.feature-two img {
+                    width: 150px !important;
+                  }
+                  
+                  .hero-team-info {
+                    padding: 8px 14px !important;
+                    gap: 10px !important;
+                    min-height: 45px !important;
+                  }
+                  
+                  .team-members-img {
+                    width: 32px !important;
+                    height: 32px !important;
                   }
                 }
                 

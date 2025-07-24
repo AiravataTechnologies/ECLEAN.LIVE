@@ -13,7 +13,7 @@ export default function NewslatterStyle2() {
   return (
     <>
       {/* Enhanced CSS for mobile responsiveness */}
-      <style jsx>{`
+      <style>{`
         .hover-btn {
           transition: all 0.3s ease !important;
         }
@@ -79,6 +79,13 @@ export default function NewslatterStyle2() {
           margin-bottom: 1.5rem;
         }
         
+        .newsletter-title {
+          font-size: 2.5rem;
+          line-height: 1.2;
+          margin-bottom: 1.5rem;
+          text-align: center !important;
+        }
+        
         .sec-text {
           font-size: 1.1rem;
           line-height: 1.6;
@@ -123,7 +130,7 @@ export default function NewslatterStyle2() {
             padding: 2.5rem 1.5rem !important;
           }
           
-          .sec-title {
+          .newsletter-title {
             font-size: 2.2rem !important;
           }
           
@@ -155,7 +162,7 @@ export default function NewslatterStyle2() {
             padding: 2rem 1.5rem !important;
           }
           
-          .sec-title {
+          .newsletter-title {
             font-size: 2rem !important;
             margin-bottom: 1rem !important;
           }
@@ -193,7 +200,7 @@ export default function NewslatterStyle2() {
             padding: 1.5rem 1rem !important;
           }
           
-          .sec-title {
+          .newsletter-title {
             font-size: 1.8rem !important;
             margin-bottom: 1rem !important;
           }
@@ -228,7 +235,7 @@ export default function NewslatterStyle2() {
             padding: 1rem 0.75rem !important;
           }
           
-          .sec-title {
+          .newsletter-title {
             font-size: 1.6rem !important;
           }
           
@@ -251,7 +258,7 @@ export default function NewslatterStyle2() {
             padding: 1rem !important;
           }
           
-          .sec-title {
+          .newsletter-title {
             font-size: 1.5rem !important;
             margin-bottom: 0.5rem !important;
           }
@@ -305,7 +312,7 @@ export default function NewslatterStyle2() {
             {/* Right: Content */}
             <div className="col-lg-6 d-flex align-items-center justify-content-center">
               <div className="sec-content w-100 text-center">
-                <h2 className="sec-title text-white fw-bold" style={{
+                <h2 className="newsletter-title text-white fw-bold" style={{
                   textShadow: "0 2px 4px rgba(0,0,0,0.3)"
                 }}>
                   AI Based SaaS Platform Hygiene

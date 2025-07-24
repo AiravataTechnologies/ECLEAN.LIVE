@@ -33,20 +33,16 @@ export default function AICleaningPlatform() {
   }, []);
 
   return (
-    <section className="responsive-section" style={{
-      padding: '10px 0', // Further reduced from 20px to 10px
-      background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
+    <>
       {/* Animated Background Particles */}
       <div style={{
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        pointerEvents: 'none'
+        pointerEvents: 'none',
+        zIndex: -1
       }}>
         {[...Array(15)].map((_, i) => (
           <div
@@ -68,7 +64,7 @@ export default function AICleaningPlatform() {
 
       {/* Background overlay with moving gradients */}
       <div style={{
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
@@ -79,7 +75,8 @@ export default function AICleaningPlatform() {
           radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.03) 0%, transparent 50%)
         `,
         pointerEvents: 'none',
-        animation: 'gradientShift 8s ease-in-out infinite'
+        animation: 'gradientShift 8s ease-in-out infinite',
+        zIndex: -1
       }}></div>
 
       <div className="responsive-container" style={{
@@ -101,7 +98,7 @@ export default function AICleaningPlatform() {
             maxWidth: isMobile ? '100%' : '41.666667%',
             padding: '0 15px',
             paddingRight: isMobile ? '15px' : '20px',
-            marginBottom: isMobile ? '10px' : '0', // Further reduced from 20px to 10px
+            marginBottom: isMobile ? '10px' : '0',
             transform: isVisible ? 'translateX(0)' : 'translateX(-50px)',
             opacity: isVisible ? 1 : 0,
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
@@ -379,7 +376,7 @@ export default function AICleaningPlatform() {
             opacity: isVisible ? 1 : 0,
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s'
           }}>
-            <div style={{ marginBottom: '10px' }}> {/* Further reduced from 20px to 10px */}
+            <div style={{ marginBottom: '10px' }}>
               <span style={{
                 display: 'inline-block',
                 background: 'linear-gradient(90deg, #3b82f6, #22c55e)',
@@ -390,7 +387,7 @@ export default function AICleaningPlatform() {
                 fontWeight: '600',
                 textTransform: 'uppercase',
                 letterSpacing: '1px',
-                marginBottom: '5px', // Further reduced from 10px to 5px
+                marginBottom: '5px',
                 animation: 'pulse 2s infinite, shimmer 3s ease-in-out infinite',
                 transform: isVisible ? 'scale(1)' : 'scale(0.8)',
                 transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s'
@@ -402,7 +399,7 @@ export default function AICleaningPlatform() {
                 fontWeight: '800',
                 color: '#333',
                 lineHeight: '1.2',
-                marginBottom: '5px', // Further reduced from 10px to 5px
+                marginBottom: '5px',
                 textShadow: '2px 2px 4px rgba(0, 0, 0, 0.05)',
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
                 opacity: isVisible ? 1 : 0,
@@ -422,7 +419,7 @@ export default function AICleaningPlatform() {
                 fontSize: isMobile ? '16px' : '18px',
                 color: '#666',
                 lineHeight: '1.6',
-                marginBottom: '10px', // Further reduced from 15px to 10px
+                marginBottom: '10px',
                 transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
                 opacity: isVisible ? 1 : 0,
                 transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s'
@@ -509,7 +506,7 @@ export default function AICleaningPlatform() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes pulse {
           0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
           70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
@@ -573,10 +570,6 @@ export default function AICleaningPlatform() {
         }
         
         @media (max-width: 991px) {
-          .responsive-section {
-            padding: 8px 0 !important; /* Further reduced from 15px */
-          }
-          
           .main-phone {
             width: 100% !important;
             max-width: 270px !important;
@@ -607,10 +600,6 @@ export default function AICleaningPlatform() {
         }
         
         @media (max-width: 768px) {
-          .responsive-section {
-            padding: 5px 0 !important;
-          }
-          
           .responsive-container {
             padding: 0 10px !important;
           }
@@ -642,10 +631,6 @@ export default function AICleaningPlatform() {
         }
         
         @media (max-width: 576px) {
-          .responsive-section {
-            padding: 3px 0 !important;
-          }
-          
           .responsive-container {
             padding: 0 8px !important;
           }
@@ -706,6 +691,6 @@ export default function AICleaningPlatform() {
           }
         }
       `}</style>
-    </section>
+    </>
   );
 }

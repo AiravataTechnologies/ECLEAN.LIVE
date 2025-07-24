@@ -33,12 +33,12 @@ export const services_2 = [
     {
         imgUrl: "/images/service/aidriven_hygiene.png",
         title: "AI-Driven Facility & Hygiene",
-        brief: "Task creation, audit tracking, and compliance monitoring—all backed by AI-powered automation.",
+        brief: "Task creation, audit tracking, and compliance monitoring all backed by AI powered automation.",
     },
     {
         imgUrl: "/images/service/endtoend.png",
         title: "End-to-End Service Automation",
-        brief: "From lead to invoice, automate every service lifecycle stage with audit, task, and feedback control.",
+        brief: "From lead to invoice, automate every service lifecycle stage with audit, task feedback.",
     },
     {
         imgUrl: "/images/service/geoattendance.png",

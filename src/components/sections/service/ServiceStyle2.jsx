@@ -1,5 +1,6 @@
 import ServiceCard from "../../ui/cards/ServiceCard";
 import AutomationFeatures from "../automationFeatures/AutomationFeatures";
+import { useEffect } from "react";
 
 const FeatureCard = ({ text }) => (
   <div className="col-sm-6 col-12">
@@ -10,12 +11,12 @@ const FeatureCard = ({ text }) => (
         padding: "15px 20px",
         borderRadius: "16px",
         fontWeight: 500,
-        fontSize: "16px",
+        fontSize: "18px",
         textAlign: "center",
         transition: "box-shadow 0.3s ease, filter 0.3s ease",
         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         cursor: "pointer",
-        height: "100px",
+        height: "110px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -72,6 +73,53 @@ export default function ServiceStyle2({ data }) {
     "Raise Support Tickets Instantly",
   ];
 
+  // Remove the blue AI-POWERED SOLUTION box after component mounts
+  useEffect(() => {
+    const removeBlueBox = () => {
+      // Try multiple selectors to find and hide the blue box
+      const selectors = [
+        '[style*="AI-POWERED SOLUTION"]',
+        'div:contains("AI-POWERED SOLUTION")',
+        '[class*="ai-powered"]',
+        '[class*="solution"]',
+        'div[style*="linear-gradient"][style*="blue"]',
+        'div[style*="background"]'
+      ];
+
+      // Search for elements containing the text
+      const allElements = document.querySelectorAll('*');
+      allElements.forEach(element => {
+        if (element.textContent && element.textContent.includes('AI-POWERED SOLUTION')) {
+          element.style.display = 'none !important';
+          element.style.visibility = 'hidden !important';
+          element.style.opacity = '0 !important';
+          element.style.height = '0 !important';
+          element.style.overflow = 'hidden !important';
+        }
+      });
+
+      // Also try to find elements with blue gradient backgrounds
+      const gradientElements = document.querySelectorAll('[style*="linear-gradient"]');
+      gradientElements.forEach(element => {
+        if (element.textContent && element.textContent.includes('AI-POWERED SOLUTION')) {
+          element.style.display = 'none !important';
+        }
+      });
+    };
+
+    // Run immediately and after a delay
+    removeBlueBox();
+    setTimeout(removeBlueBox, 100);
+    setTimeout(removeBlueBox, 500);
+    setTimeout(removeBlueBox, 1000);
+
+    // Set up a mutation observer to catch dynamically added elements
+    const observer = new MutationObserver(removeBlueBox);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="service-sec2 sec-ptb">
       <style>{`
@@ -82,11 +130,29 @@ export default function ServiceStyle2({ data }) {
         .app-section-title {
           font-size: 2rem !important;
           margin-bottom: 1rem !important;
+          color: #000000 !important;
+        }
+
+        .app-section-title .text-primary {
+          color: #000000 !important;
+        }
+
+        .app-section-title .text-success {
+          color: #000000 !important;
+        }
+
+        .app-section-title .text-warning {
+          color: #000000 !important;
+        }
+
+        .app-section-title .text-dark {
+          color: #000000 !important;
         }
 
         .app-section-description {
           margin-bottom: 1.5rem !important;
           font-size: 1.1rem !important;
+          color: #000000 !important;
         }
 
         .feature-card-container {
@@ -97,49 +163,57 @@ export default function ServiceStyle2({ data }) {
           max-width: 100% !important;
           height: auto !important;
           border-radius: 12px !important;
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+          box-shadow: none !important;
+          background: transparent !important;
         }
 
+        .sec-title {
+          color: #000000 !important;
+        }
+
+        .sec-sub-title {
+          color: #000000 !important;
+        }
+
+        /* Automation Section Styles */
         .automation-section {
-          margin-top: 5rem !important;
-          padding: 4rem 0 !important;
-          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
-          border-radius: 20px !important;
-          position: relative !important;
-          overflow: hidden !important;
+          margin-top: 4rem !important;
+          text-align: center !important;
         }
 
-        .automation-section::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: 
-            radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
-          pointer-events: none;
+        /* Hide the blue AI-POWERED SOLUTION box */
+        .automation-section .ai-powered-badge,
+        .automation-section [style*="linear-gradient"][style*="3b82f6"],
+        .automation-section *:contains("AI-POWERED SOLUTION") {
+          display: none !important;
+        }
+        
+        /* More specific selectors to hide the blue box */
+        .automation-section div[style*="background"] div:contains("AI-POWERED SOLUTION"),
+        .automation-section .badge,
+        .automation-section .ai-solution-badge {
+          display: none !important;
+        }
+        
+        /* Target any element with blue gradient and "SOLUTION" text */
+        .automation-section div {
+          &:has-text("AI-POWERED SOLUTION") {
+            display: none !important;
+          }
         }
 
         .automation-title {
-          position: relative;
-          z-index: 2;
           font-size: 2.5rem !important;
-          font-weight: 800 !important;
-          text-align: center !important;
-          margin-bottom: 3rem !important;
-          color: #333 !important;
+          font-weight: bold !important;
+          margin-bottom: 1rem !important;
+          color: #000000 !important;
         }
 
         .automation-subtitle {
-          position: relative;
-          z-index: 2;
           font-size: 1.2rem !important;
-          text-align: center !important;
-          color: #666 !important;
-          margin-bottom: 3rem !important;
-          max-width: 600px !important;
+          margin-bottom: 2rem !important;
+          color: #666666 !important;
+          max-width: 800px !important;
           margin-left: auto !important;
           margin-right: auto !important;
         }
@@ -153,10 +227,12 @@ export default function ServiceStyle2({ data }) {
           .sec-title {
             font-size: 1.8rem !important;
             line-height: 1.3 !important;
+            color: #000000 !important;
           }
 
           .sec-sub-title {
             font-size: 0.9rem !important;
+            color: #000000 !important;
           }
 
           .app-sections {
@@ -166,12 +242,21 @@ export default function ServiceStyle2({ data }) {
           .app-section-title {
             font-size: 1.5rem !important;
             margin-bottom: 0.8rem !important;
+            color: #000000 !important;
+          }
+
+          .app-section-title .text-primary,
+          .app-section-title .text-success,
+          .app-section-title .text-warning,
+          .app-section-title .text-dark {
+            color: #000000 !important;
           }
 
           .app-section-description {
             font-size: 0.95rem !important;
             margin-bottom: 1.2rem !important;
             padding: 0 10px !important;
+            color: #000000 !important;
           }
 
           .feature-card-container .col-sm-6 {
@@ -179,9 +264,9 @@ export default function ServiceStyle2({ data }) {
           }
 
           .feature-card-container > div > div {
-            height: 80px !important;
+            height: 90px !important;
             padding: 10px 15px !important;
-            font-size: 14px !important;
+            font-size: 16px !important;
             border-radius: 12px !important;
           }
 
@@ -192,6 +277,8 @@ export default function ServiceStyle2({ data }) {
           .video-responsive {
             margin-top: 15px !important;
             border-radius: 8px !important;
+            box-shadow: none !important;
+            background: transparent !important;
           }
 
           /* Stack video above content on mobile */
@@ -208,20 +295,13 @@ export default function ServiceStyle2({ data }) {
             margin-bottom: 20px !important;
           }
 
-          .automation-section {
-            margin-top: 3rem !important;
-            padding: 2rem 0 !important;
-            border-radius: 15px !important;
-          }
-
+          /* Automation section mobile styles */
           .automation-title {
             font-size: 1.8rem !important;
-            margin-bottom: 2rem !important;
           }
 
           .automation-subtitle {
             font-size: 1rem !important;
-            margin-bottom: 2rem !important;
             padding: 0 15px !important;
           }
         }
@@ -230,15 +310,32 @@ export default function ServiceStyle2({ data }) {
         @media (min-width: 577px) and (max-width: 768px) {
           .app-section-title {
             font-size: 1.8rem !important;
+            color: #000000 !important;
+          }
+
+          .app-section-title .text-primary,
+          .app-section-title .text-success,
+          .app-section-title .text-warning,
+          .app-section-title .text-dark {
+            color: #000000 !important;
+          }
+
+          .app-section-description {
+            color: #000000 !important;
           }
 
           .feature-card-container > div > div {
-            height: 90px !important;
-            font-size: 15px !important;
+            height: 100px !important;
+            font-size: 17px !important;
           }
 
           .row.align-items-center {
             margin-bottom: 3.5rem !important;
+          }
+
+          .video-responsive {
+            box-shadow: none !important;
+            background: transparent !important;
           }
 
           .automation-title {
@@ -254,14 +351,51 @@ export default function ServiceStyle2({ data }) {
         @media (min-width: 769px) and (max-width: 992px) {
           .app-section-title {
             font-size: 1.9rem !important;
+            color: #000000 !important;
+          }
+
+          .app-section-title .text-primary,
+          .app-section-title .text-success,
+          .app-section-title .text-warning,
+          .app-section-title .text-dark {
+            color: #000000 !important;
+          }
+
+          .app-section-description {
+            color: #000000 !important;
           }
 
           .feature-card-container > div > div {
-            height: 95px !important;
+            height: 105px !important;
+            font-size: 18px !important;
           }
 
-          .automation-title {
-            font-size: 2.3rem !important;
+          .video-responsive {
+            box-shadow: none !important;
+            background: transparent !important;
+          }
+        }
+
+        /* Desktop */
+        @media (min-width: 993px) {
+          .app-section-title {
+            color: #000000 !important;
+          }
+
+          .app-section-title .text-primary,
+          .app-section-title .text-success,
+          .app-section-title .text-warning,
+          .app-section-title .text-dark {
+            color: #000000 !important;
+          }
+
+          .app-section-description {
+            color: #000000 !important;
+          }
+
+          .video-responsive {
+            box-shadow: none !important;
+            background: transparent !important;
           }
         }
 
@@ -284,14 +418,14 @@ export default function ServiceStyle2({ data }) {
       `}</style>
       <div className="container">
         {/* Header */}
-        <div className="row">
+        {/* <div className="row">
           <div className="offset-lg-3 col-lg-6">
             <div className="sec-content text-center mb-5">
               <h6 className="sec-sub-title">What We Do</h6>
               <h2 className="sec-title">Services That Help You Grow</h2>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Main Service Cards */}
         <div className="row">
@@ -445,12 +579,12 @@ export default function ServiceStyle2({ data }) {
           <div className="automation-section">
             <div className="container">
               <h2 className="automation-title">
-                AI-Powered <span style={{
+                <strong>AI-Powered</strong> <span style={{
                   background: 'linear-gradient(45deg, #3b82f6, #22c55e)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text'
-                }}>Automation</span> Platform
+                }}>Automation</span> <strong>Platform</strong>
               </h2>
               <p className="automation-subtitle">
                 Experience the future of cleaning and hygiene management with our intelligent automation system that streamlines operations and enhances productivity.
@@ -458,7 +592,6 @@ export default function ServiceStyle2({ data }) {
               <AutomationFeatures />
             </div>
           </div>
-
         </div>
       </div>
     </section>

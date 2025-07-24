@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { faq } from "../../../data/site";
 import FaqCollapse from "../../ui/faq/FaqCollapse";
@@ -24,12 +25,14 @@ export default function FaqStyle2() {
 
   return (
     <>
-      <section className="faq-sec sec-ptb">
+      <section
+        className="faq-sec sec-ptb"
+        style={{ paddingTop: "60px" }} // Reduced top padding
+      >
         <div className="container">
           <div className="row">
             <div className="col-lg-6 d-flex justify-content-center flex-column">
               <div className="sec-content mb-5">
-                <h6 className="sec-sub-title">FAQs</h6>
                 <h2 className="sec-title">Looking For Answers?</h2>
               </div>
             </div>
