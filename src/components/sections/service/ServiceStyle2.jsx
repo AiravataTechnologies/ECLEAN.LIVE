@@ -209,6 +209,10 @@ export default function ServiceStyle2({ data }) {
           color: #000000 !important;
         }
 
+        .automation-title .automation-text {
+          color: #000000 !important;
+        }
+
         .automation-subtitle {
           font-size: 1.2rem !important;
           margin-bottom: 2rem !important;
@@ -259,19 +263,43 @@ export default function ServiceStyle2({ data }) {
             color: #000000 !important;
           }
 
-          .feature-card-container .col-sm-6 {
-            margin-bottom: 10px !important;
+          .feature-card-container {
+            margin-bottom: 1.5rem !important;
           }
 
-          .feature-card-container > div > div {
-            height: 90px !important;
-            padding: 10px 15px !important;
-            font-size: 16px !important;
+          /* Force single column layout on mobile */
+          .feature-card-container .col-sm-6,
+          .feature-card-container .col-12 {
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+            margin-bottom: 10px !important;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+          }
+
+          /* Better card styling for mobile */
+          .feature-card-container .col-sm-6 > div,
+          .feature-card-container .col-12 > div {
+            height: 80px !important;
+            padding: 8px 15px !important;
+            font-size: 13px !important;
             border-radius: 12px !important;
+            line-height: 1.25 !important;
+            font-weight: 500 !important;
+            word-wrap: break-word !important;
+            hyphens: auto !important;
+            text-align: center !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: linear-gradient(135deg, #00c853, #43a047) !important;
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            transition: all 0.3s ease !important;
           }
 
           .row.align-items-center {
-            margin-bottom: 3rem !important;
+            margin-bottom: 2.5rem !important;
           }
 
           .video-responsive {
@@ -293,6 +321,13 @@ export default function ServiceStyle2({ data }) {
           .flex-md-row-reverse .col-md-6:last-child {
             order: 1 !important;
             margin-bottom: 20px !important;
+          }
+
+          /* Remove hover effects on mobile */
+          .feature-card-container .col-sm-6 > div:hover,
+          .feature-card-container .col-12 > div:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            filter: brightness(1) !important;
           }
 
           /* Automation section mobile styles */
@@ -324,9 +359,14 @@ export default function ServiceStyle2({ data }) {
             color: #000000 !important;
           }
 
+          .feature-card-container .col-sm-6 {
+            margin-bottom: 15px !important;
+          }
+
           .feature-card-container > div > div {
-            height: 100px !important;
-            font-size: 17px !important;
+            height: 95px !important;
+            font-size: 16px !important;
+            padding: 10px 15px !important;
           }
 
           .row.align-items-center {
@@ -579,12 +619,7 @@ export default function ServiceStyle2({ data }) {
           <div className="automation-section">
             <div className="container">
               <h2 className="automation-title">
-                <strong>AI-Powered</strong> <span style={{
-                  background: 'linear-gradient(45deg, #3b82f6, #22c55e)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>Automation</span> <strong>Platform</strong>
+                <strong>AI-Powered</strong> <strong>Automation</strong> <strong>Platform</strong>
               </h2>
               <p className="automation-subtitle">
                 Experience the future of cleaning and hygiene management with our intelligent automation system that streamlines operations and enhances productivity.

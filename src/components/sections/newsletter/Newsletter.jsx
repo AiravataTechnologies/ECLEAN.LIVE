@@ -43,6 +43,21 @@ export default function NewslatterStyle2() {
         .nl2-video-sec {
           min-height: 400px;
           position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .video-sec-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          z-index: 2;
         }
         
         .nl2-play-btn {
@@ -55,6 +70,8 @@ export default function NewslatterStyle2() {
           justify-content: center;
           transition: all 0.3s ease;
           text-decoration: none;
+          position: relative;
+          z-index: 3;
         }
         
         .nl2-play-btn:hover {
@@ -158,6 +175,19 @@ export default function NewslatterStyle2() {
             min-height: 250px !important;
           }
           
+          .video-sec-overlay {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          
           .nl2-sec-content {
             padding: 2rem 1.5rem !important;
           }
@@ -185,12 +215,12 @@ export default function NewslatterStyle2() {
           }
           
           .nl2-play-btn {
-            width: 60px;
-            height: 60px;
+            width: 60px !important;
+            height: 60px !important;
           }
           
           .nl2-play-btn i {
-            font-size: 20px;
+            font-size: 20px !important;
           }
         }
         
@@ -214,13 +244,28 @@ export default function NewslatterStyle2() {
             min-height: 200px !important;
           }
           
+          .video-sec-overlay {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          
           .nl2-play-btn {
-            width: 50px;
-            height: 50px;
+            width: 50px !important;
+            height: 50px !important;
+            position: relative !important;
+            z-index: 10 !important;
           }
           
           .nl2-play-btn i {
-            font-size: 18px;
+            font-size: 18px !important;
           }
           
           .nl2-btn {
@@ -246,12 +291,47 @@ export default function NewslatterStyle2() {
           .nl2-video-sec {
             min-height: 180px !important;
           }
+          
+          .video-sec-overlay {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          
+          .nl2-play-btn {
+            width: 45px !important;
+            height: 45px !important;
+          }
+          
+          .nl2-play-btn i {
+            font-size: 16px !important;
+          }
         }
         
         /* Landscape orientation on mobile */
         @media (max-height: 500px) and (orientation: landscape) {
           .nl2-video-sec {
             min-height: 150px !important;
+          }
+          
+          .video-sec-overlay {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
           }
           
           .nl2-sec-content {
@@ -270,6 +350,15 @@ export default function NewslatterStyle2() {
           
           .nl2-button-group {
             gap: 0.5rem !important;
+          }
+          
+          .nl2-play-btn {
+            width: 40px !important;
+            height: 40px !important;
+          }
+          
+          .nl2-play-btn i {
+            font-size: 14px !important;
           }
         }
       `}</style>
@@ -301,7 +390,7 @@ export default function NewslatterStyle2() {
                   backgroundPosition: "center"
                 }}
               >
-                <div className="video-sec-overlay d-flex align-items-center justify-content-center h-100">
+                <div className="video-sec-overlay">
                   <a href="#" onClick={videoOpenHandler} className="nl2-play-btn">
                     <i className="flaticon-play-button-arrowhead" />
                   </a>

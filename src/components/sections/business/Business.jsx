@@ -135,19 +135,19 @@ export default function Business() {
           <div className="col-lg-6">
             <div className="sec-content h-100 d-flex justify-content-center flex-column">
               <h6
-                className={`sec-sub-title ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                className={`sec-sub-title business-orange-subtitle ${isVisible ? 'business-animate-fade-in-up' : 'business-opacity-0'}`}
                 style={{ animationDelay: '0.1s' }}
               >
                 Smart Solutions
               </h6>
               <div
-                className={`content-section ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                className={`business-content-section ${isVisible ? 'business-animate-fade-in-up' : 'business-opacity-0'}`}
                 style={{ animationDelay: '0.2s' }}
               >
-                <h2 className="sec-title">
+                <h2 className="business-sec-title">
                   Transform Your Cleaning Operations with AI-Powered Intelligence
                 </h2>
-                <p className="sec-text">
+                <p className="business-sec-text">
                   Revolutionize hygiene and facility management through our next-generation
                   AI-based SaaS platform. Streamline operations, enhance transparency, and
                   deliver real-time intelligence across both public and private sector ecosystems.
@@ -157,7 +157,7 @@ export default function Business() {
               {animatedProgress?.map((item, i) => (
                 <div
                   key={i}
-                  className={`ab-progress ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  className={`ab-progress ${isVisible ? 'business-animate-fade-in-up' : 'business-opacity-0'}`}
                   style={{ animationDelay: `${0.4 + (i * 0.1)}s` }}
                 >
                   <h2 className="progress-title">{item.title}</h2>
@@ -177,17 +177,17 @@ export default function Business() {
           </div>
           <div className="col-lg-6 tab-col-gap">
             <div
-              className={`sec-images d-flex justify-content-center align-items-center wow fadeInRight ${isVisible ? 'animate-fade-in-right' : 'opacity-0'}`}
+              className={`sec-images d-flex justify-content-center align-items-center wow fadeInRight ${isVisible ? 'business-animate-fade-in-right' : 'business-opacity-0'}`}
               data-wow-delay="500ms"
               data-wow-duration="1500ms"
               style={{ animationDelay: '0.2s' }}
             >
-              <div className="sec-img-main">
+              <div className="business-sec-img-main">
                 <DotLottieReact
                   src="https://lottie.host/4aed34ec-5ec9-487d-9623-f4280ae2642d/t6Jd1Ghn0j.lottie"
                   loop
                   autoplay
-                  className="lottie-animation"
+                  className="business-lottie-animation"
                 />
               </div>
             </div>
@@ -196,19 +196,35 @@ export default function Business() {
       </div>
 
       <style>{`
-        .opacity-0 {
+        .business-opacity-0 {
           opacity: 0;
         }
         
-        .animate-fade-in-up {
-          animation: fadeInUp 0.6s ease-out forwards;
+        /* Force orange color for Smart Solutions subtitle */
+        .business-orange-subtitle {
+          color: #ff6b35 !important;
+          font-weight: 600 !important;
+          text-transform: uppercase !important;
+          letter-spacing: 1px !important;
+          margin-bottom: 15px !important;
         }
         
-        .animate-fade-in-right {
-          animation: fadeInRight 0.8s ease-out forwards;
+        /* Override any existing styles that might conflict */
+        .sec-sub-title.business-orange-subtitle,
+        h6.business-orange-subtitle,
+        .business-orange-subtitle {
+          color: #ff6b35 !important;
         }
         
-        @keyframes fadeInUp {
+        .business-animate-fade-in-up {
+          animation: businessFadeInUp 0.6s ease-out forwards;
+        }
+        
+        .business-animate-fade-in-right {
+          animation: businessFadeInRight 0.8s ease-out forwards;
+        }
+        
+        @keyframes businessFadeInUp {
           from {
             opacity: 0;
             transform: translateY(30px);
@@ -219,7 +235,7 @@ export default function Business() {
           }
         }
         
-        @keyframes fadeInRight {
+        @keyframes businessFadeInRight {
           from {
             opacity: 0;
             transform: translateX(30px);
@@ -243,7 +259,7 @@ export default function Business() {
           min-height: 400px;
         }
         
-        .sec-img-main {
+        .business-sec-img-main {
           width: 100%;
           max-width: 450px;
           height: 400px;
@@ -252,48 +268,115 @@ export default function Business() {
           align-items: center;
         }
         
-        .lottie-animation {
+        .business-lottie-animation {
           width: 100%;
           height: 100%;
           object-fit: contain;
         }
         
-        .content-section {
+        .business-content-section {
           text-align: justify;
           line-height: 1.6;
+          width: 100%;
+          max-width: 100%;
+          padding-right: 15px;
         }
         
-        .content-section .sec-title {
-          text-align: justify;
-          line-height: 1.4;
-          margin-bottom: 20px;
-          font-size: 2.5rem;
+        .business-content-section .business-sec-title {
+          text-align: left;
+          line-height: 1.3;
+          margin-bottom: 25px;
+          font-size: clamp(1.8rem, 4vw, 2.5rem);
           font-weight: bold;
           color: #333;
+          word-wrap: break-word;
+          hyphens: auto;
+          max-width: 100%;
         }
         
-        .content-section .sec-text {
+        .business-content-section .business-sec-text {
           text-align: justify;
           line-height: 1.6;
-          margin: 0;
+          margin: 0 0 30px 0;
+          font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+          color: #666;
         }
         
         .row.align-items-center {
           align-items: center !important;
         }
         
+        .col-lg-6 {
+          width: 100%;
+        }
+        
+        @media (min-width: 992px) {
+          .col-lg-6 {
+            width: 50%;
+            flex: 0 0 50%;
+          }
+        }
+        
         @media (max-width: 991px) {
-          .sec-img-main {
+          .business-sec-img-main {
             max-width: 350px;
             height: 300px;
             margin: 30px auto;
           }
+          
+          .business-content-section {
+            padding-right: 0;
+            margin-bottom: 30px;
+          }
+          
+          .business-content-section .business-sec-title {
+            font-size: clamp(1.6rem, 5vw, 2.2rem);
+            text-align: center;
+            margin-bottom: 20px;
+          }
+          
+          .business-content-section .business-sec-text {
+            text-align: center;
+            margin-bottom: 25px;
+          }
+          
+          /* Center align Smart Solutions subtitle in mobile */
+          .business-orange-subtitle {
+            text-align: center !important;
+          }
         }
         
         @media (max-width: 767px) {
-          .sec-img-main {
+          .business-sec-img-main {
             max-width: 280px;
             height: 250px;
+          }
+          
+          .business-content-section .business-sec-title {
+            font-size: clamp(1.4rem, 6vw, 1.9rem);
+            line-height: 1.2;
+            margin-bottom: 15px;
+          }
+          
+          .business-content-section .business-sec-text {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            margin-bottom: 20px;
+          }
+          
+          .ab-progress {
+            margin-bottom: 15px;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .business-content-section .business-sec-title {
+            font-size: clamp(1.2rem, 7vw, 1.6rem);
+            line-height: 1.1;
+            word-break: break-word;
+          }
+          
+          .business-content-section {
+            padding: 0 10px;
           }
         }
       `}</style>

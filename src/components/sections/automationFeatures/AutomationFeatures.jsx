@@ -379,7 +379,7 @@ export default function AICleaningPlatform() {
             <div style={{ marginBottom: '10px' }}>
               <span style={{
                 display: 'inline-block',
-                background: 'linear-gradient(90deg, #3b82f6, #22c55e)',
+                background: '#22c55e',
                 color: 'white',
                 padding: '8px 20px',
                 borderRadius: '25px',
@@ -388,7 +388,7 @@ export default function AICleaningPlatform() {
                 textTransform: 'uppercase',
                 letterSpacing: '1px',
                 marginBottom: '5px',
-                animation: 'pulse 2s infinite, shimmer 3s ease-in-out infinite',
+                animation: 'pulse 2s infinite',
                 transform: isVisible ? 'scale(1)' : 'scale(0.8)',
                 transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s'
               }}>
@@ -406,11 +406,7 @@ export default function AICleaningPlatform() {
                 transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s'
               }}>
                 Smart <span style={{
-                  background: 'linear-gradient(45deg, #3b82f6, #22c55e)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  animation: 'textGlow 2s ease-in-out infinite alternate'
+                  color: '#22c55e'
                 }}>Hygiene</span> &
                 <br />
                 <span style={{ color: '#22c55e' }}>Cleaning</span> Automation
@@ -508,19 +504,9 @@ export default function AICleaningPlatform() {
 
       <style>{`
         @keyframes pulse {
-          0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
-          70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
-        }
-        
-        @keyframes shimmer {
-          0% { background-position: -200% center; }
-          100% { background-position: 200% center; }
-        }
-        
-        @keyframes textGlow {
-          0% { text-shadow: 0 0 3px rgba(59, 130, 246, 0.3); }
-          100% { text-shadow: 0 0 8px rgba(59, 130, 246, 0.5), 0 0 12px rgba(34, 197, 94, 0.3); }
+          0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+          70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
         
         @keyframes slideInUp {

@@ -44,7 +44,8 @@ export default function Hero() {
                   </a>
                   <span className="play-intro">Play Intro</span>
                 </div>
-                <div className="hero-team-info d-flex align-items-center">
+                {/* Team info card - hidden on mobile, visible on desktop */}
+                <div className="hero-team-info d-flex align-items-center d-none d-md-flex">
                   <div className="team-members d-flex">
                     {peoples?.map((item, i) => (
                       <div
@@ -171,8 +172,6 @@ export default function Hero() {
                   }
                 }
                 
-
-                
                 /* Glow effect on focus */
                 .action-btn:focus {
                   outline: none;
@@ -257,55 +256,6 @@ export default function Hero() {
                   .hero-info-img.feature-two img {
                     width: 120px !important;
                     height: auto !important;
-                  }
-                  
-                  /* Updated team members card - single line, reduced height */
-                  .hero-team-info {
-                    background: rgba(255, 255, 255, 0.1) !important;
-                    padding: 6px 12px !important;
-                    border-radius: 20px !important;
-                    backdrop-filter: blur(10px) !important;
-                    gap: 10px !important;
-                    height: auto !important;
-                    min-height: 40px !important;
-                    display: flex !important;
-                    align-items: center !important;
-                    width: fit-content !important;
-                  }
-                  
-                  .total-team-count {
-                    display: flex !important;
-                    align-items: center !important;
-                    gap: 5px !important;
-                    flex-direction: row !important;
-                    white-space: nowrap !important;
-                  }
-                  
-                  .total-team-count span {
-                    font-size: 1rem !important;
-                    font-weight: bold !important;
-                    color: white !important;
-                    margin: 0 !important;
-                  }
-                  
-                  .total-team-count p {
-                    margin: 0 !important;
-                    font-size: 0.85rem !important;
-                    color: white !important;
-                  }
-                  
-                  .team-members {
-                    flex-shrink: 0 !important;
-                    display: flex !important;
-                  }
-                  
-                  .team-members-img {
-                    width: 28px !important;
-                    height: 28px !important;
-                    margin-right: -6px !important;
-                    border: 2px solid white !important;
-                    border-radius: 50% !important;
-                    overflow: hidden !important;
                   }
                 }
                 
