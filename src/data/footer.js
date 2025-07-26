@@ -80,7 +80,7 @@ export const footer_blogs = [
     },
     {
         imgUrl: "/images/blog/recent2.png",
-        title: "IT Solution for your Company.",
+        title: "Cleaning Solutions using Saas.",
         date: "Wed Dec 27 2023 00:16:40 GMT+0000",
         url: 'blog-details'
     },

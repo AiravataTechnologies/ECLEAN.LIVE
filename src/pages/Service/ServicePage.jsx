@@ -12,7 +12,7 @@ const breadcumb_data = {
       url: "/",
     },
     {
-      name: "Services",
+      name: "Features",
       url: "/services",
     },
   ],
