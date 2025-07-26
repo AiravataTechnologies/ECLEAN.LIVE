@@ -33,7 +33,7 @@ export default function Hero() {
                   AI based SaaS platform for hygeine and cleaning
                 </h1>
                 <p className="text-white hero-description">
-                  eClean.live by <a href="https://nityam.sg" target="_blank">Nityam Software Solution Pte. Ltd</a> is a next-generation, AI-driven SaaS platform tailored for facility management companies, corporate offices, hospitals, government bodies, and large industrial plants.
+                  eClean.live by <a href="https://nityam.sg" target="_blank">Nityam Singapore Pte. Ltd</a> is a next-generation, AI-driven SaaS platform tailored for facility management companies, corporate offices, hospitals, government bodies, and large industrial plants.
                 </p>
                 <div className="hero-btn-area d-flex align-items-center">
                   <Link to="/about" className="thm-btn">
