@@ -1,6 +1,6 @@
 import Newslatter from "../../components/sections/newsletter/Newsletter";
-import NewslatterStyle3 from "../../components/sections/newsletter/NewsletterStyle3";
-import Pricing from "../../components/sections/pricing/Pricing";
+// import NewslatterStyle3 from "../../components/sections/newsletter/NewsletterStyle3";
+// // import Pricing from "../../components/sections/pricing/Pricing";
 import ServiceStyle2 from "../../components/sections/service/ServiceStyle2";
 import BreadCrumb from "../../components/ui/breadCrumb/BreadCrumb";
 import { services_2 } from "../../data/site";
@@ -25,8 +25,8 @@ export default function ServicesPage() {
       <BreadCrumb data={breadcumb_data} />
       <ServiceStyle2 data={services} />
       <Newslatter />
-      <Pricing />
-      <NewslatterStyle3 />
+      {/* <Pricing /> */}
+      {/* <NewslatterStyle3 /> */}
     </>
   );
 }

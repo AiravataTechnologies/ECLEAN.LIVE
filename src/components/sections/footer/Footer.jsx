@@ -146,7 +146,7 @@ export default function Footer() {
                 <p className="mb-0" style={{ color: '#333' }}>
                   ©{" "}
                   <a
-                    href="https://themeforest.net/user/hurraytheme"
+                    // href="https://themeforest.net/user/hurraytheme"
                     target="_blank"
                     style={{ color: '#1e40af' }}
                   >
