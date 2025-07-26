@@ -29,7 +29,7 @@ export default function TestimonialCard({ data }) {
         <i className="flaticon-cleaning" />
       </div>
 
-      <style jsx>{`
+      <style>{`
         .testimonial-card-wrapper {
           background: rgba(173, 216, 230, 0.3);
           border-radius: 10px;

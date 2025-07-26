@@ -4,7 +4,7 @@ import PriceCard from "../../ui/cards/PriceCard";
 export default function Pricing() {
   return (
     <>
-      <style jsx>{`
+      <style>{`
         .pricing-section-wrapper {
           padding: 100px 0 80px;
           background-color: #ffffff;

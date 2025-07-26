@@ -66,7 +66,7 @@ export default function Testimonial() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .testimonial-sec {
           padding: 60px 0;
         }
