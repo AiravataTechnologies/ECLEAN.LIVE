@@ -30,10 +30,10 @@ export default function Hero() {
                   Streamline, Automate, and Elevate Your Facility Management Services
                 </span>
                 <h1 className="hero-title text-white">
-                  AI-Based Cleaning Industry Platform
+                  AI based SaaS platform for hygeine and cleaning
                 </h1>
-                <p className="text-white">
-                  eClean.live by Nityam Software Solution Pvt. Ltd. is a next-generation, AI-driven SaaS platform tailored for facility management companies, corporate offices, hospitals, government bodies, and large industrial plants.
+                <p className="text-white hero-description">
+                  eClean.live by <a href="https://nityam.sg" target="_blank">Nityam Software Solution Pte. Ltd</a> is a next-generation, AI-driven SaaS platform tailored for facility management companies, corporate offices, hospitals, government bodies, and large industrial plants.
                 </p>
                 <div className="hero-btn-area d-flex align-items-center">
                   <Link to="/about" className="thm-btn">
@@ -115,6 +115,155 @@ export default function Hero() {
           <div className="row mt-5 pt-4">
             <div className="col-12">
               <style>{`
+                /* Hero Typography Fixes */
+                .hero-tagline {
+                  font-size: 1.1rem;
+                  font-weight: 500;
+                  line-height: 1.4;
+                  margin-bottom: 1rem;
+                  display: block;
+                  letter-spacing: 0.5px;
+                  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+                }
+                
+                .hero-title {
+                  font-size: 2.8rem;
+                  font-weight: 700;
+                  line-height: 1.2;
+                  margin-bottom: 1.5rem;
+                  letter-spacing: -0.02em;
+                  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                }
+                
+                .hero-description {
+                  font-size: 1.1rem;
+                  font-weight: 400;
+                  line-height: 1.6;
+                  margin-bottom: 2rem;
+                  opacity: 0.95;
+                  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+                }
+                
+                .hero-description a {
+                  color: #fff;
+                  text-decoration: underline;
+                  font-weight: 500;
+                }
+                
+                .hero-description a:hover {
+                  color: #f8f9fa;
+                  text-decoration: none;
+                }
+                
+                /* Mobile Typography Responsive */
+                @media (max-width: 576px) {
+                  .hero-tagline {
+                    font-size: 0.95rem;
+                    line-height: 1.3;
+                    margin-bottom: 0.8rem;
+                    letter-spacing: 0.3px;
+                  }
+                  
+                  .hero-title {
+                    font-size: 2rem;
+                    line-height: 1.15;
+                    margin-bottom: 1.2rem;
+                    letter-spacing: -0.01em;
+                  }
+                  
+                  .hero-description {
+                    font-size: 1rem;
+                    line-height: 1.5;
+                    margin-bottom: 1.8rem;
+                  }
+                }
+                
+                /* Tablet Typography Responsive */
+                @media (min-width: 577px) and (max-width: 768px) {
+                  .hero-tagline {
+                    font-size: 1rem;
+                    line-height: 1.35;
+                    margin-bottom: 0.9rem;
+                  }
+                  
+                  .hero-title {
+                    font-size: 2.3rem;
+                    line-height: 1.18;
+                    margin-bottom: 1.3rem;
+                  }
+                  
+                  .hero-description {
+                    font-size: 1.05rem;
+                    line-height: 1.55;
+                    margin-bottom: 1.9rem;
+                  }
+                }
+                
+                /* Small Desktop Typography */
+                @media (min-width: 769px) and (max-width: 992px) {
+                  .hero-tagline {
+                    font-size: 1.05rem;
+                    line-height: 1.38;
+                    margin-bottom: 1rem;
+                  }
+                  
+                  .hero-title {
+                    font-size: 2.5rem;
+                    line-height: 1.2;
+                    margin-bottom: 1.4rem;
+                  }
+                  
+                  .hero-description {
+                    font-size: 1.08rem;
+                    line-height: 1.58;
+                    margin-bottom: 2rem;
+                  }
+                }
+                
+                /* Large Desktop Typography */
+                @media (min-width: 1200px) {
+                  .hero-tagline {
+                    font-size: 1.2rem;
+                    line-height: 1.42;
+                    margin-bottom: 1.2rem;
+                    letter-spacing: 0.6px;
+                  }
+                  
+                  .hero-title {
+                    font-size: 3.2rem;
+                    line-height: 1.22;
+                    margin-bottom: 1.6rem;
+                    letter-spacing: -0.03em;
+                  }
+                  
+                  .hero-description {
+                    font-size: 1.15rem;
+                    line-height: 1.65;
+                    margin-bottom: 2.2rem;
+                  }
+                }
+                
+                /* Extra Large Desktop Typography */
+                @media (min-width: 1400px) {
+                  .hero-tagline {
+                    font-size: 1.25rem;
+                    line-height: 1.45;
+                    margin-bottom: 1.3rem;
+                  }
+                  
+                  .hero-title {
+                    font-size: 3.5rem;
+                    line-height: 1.25;
+                    margin-bottom: 1.7rem;
+                  }
+                  
+                  .hero-description {
+                    font-size: 1.2rem;
+                    line-height: 1.7;
+                    margin-bottom: 2.3rem;
+                  }
+                }
+                
                 .hero-action-buttons {
                   gap: 2rem;
                 }

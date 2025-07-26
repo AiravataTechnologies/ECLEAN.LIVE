@@ -5,7 +5,7 @@ import ServiceStyle2 from "../../components/sections/service/ServiceStyle2";
 import BreadCrumb from "../../components/ui/breadCrumb/BreadCrumb";
 import { services_2 } from "../../data/site";
 const breadcumb_data = {
-  title: "Our Services",
+  title: "Our Features",
   list: [
     {
       name: "Home",

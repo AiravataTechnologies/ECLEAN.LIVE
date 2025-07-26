@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 export default function ServiceCard({ data, index }) {
   return (
     <div
@@ -13,7 +11,7 @@ export default function ServiceCard({ data, index }) {
       <div className="content-box d-flex">
         <div className="single-service-content">
           <h5>
-            <Link to="/service-details">{data.title}</Link>
+            <span className="service-title">{data.title}</span>
           </h5>
           <p>{data.brief}</p>
         </div>

@@ -33,7 +33,7 @@ export default function Header() {
         }
         
         .mobile-nav-toggler .site-ligo img {
-          max-height: 40px;
+          max-height: 40px; /* Back to original size */
           width: auto;
         }
         
@@ -75,7 +75,7 @@ export default function Header() {
         .btn-box {
           flex-shrink: 0;
           width: auto;
-          min-width: 140px; /* Fixed minimum width */
+          min-width: 145px; /* Reduced from 160px */
         }
         
         .btn-box .thm-btn {
@@ -83,10 +83,10 @@ export default function Header() {
           align-items: center;
           justify-content: center;
           white-space: nowrap;
-          width: 140px; /* Fixed width */
+          width: 145px; /* Reduced from 160px */
           height: 40px; /* Fixed height */
           padding: 0;
-          font-size: 0.85rem;
+          font-size: 0.73rem; /* Slightly smaller */
           font-weight: 500;
           text-decoration: none;
           border-radius: 6px;
@@ -100,7 +100,7 @@ export default function Header() {
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          max-width: 130px;
+          max-width: 135px; /* Reduced from 150px */
           line-height: 1;
         }
         
@@ -119,17 +119,17 @@ export default function Header() {
           }
           
           .btn-box {
-            min-width: 130px;
+            min-width: 135px; /* Reduced */
           }
           
           .btn-box .thm-btn {
-            width: 130px;
+            width: 135px; /* Reduced */
             height: 38px;
-            font-size: 0.8rem;
+            font-size: 0.68rem;
           }
           
           .btn-box .thm-btn .txt {
-            max-width: 120px;
+            max-width: 125px; /* Reduced */
           }
         }
         
@@ -156,17 +156,17 @@ export default function Header() {
           }
           
           .btn-box {
-            min-width: 120px;
+            min-width: 125px; /* Reduced */
           }
           
           .btn-box .thm-btn {
-            width: 120px;
+            width: 125px; /* Reduced */
             height: 36px;
-            font-size: 0.75rem;
+            font-size: 0.63rem;
           }
           
           .btn-box .thm-btn .txt {
-            max-width: 110px;
+            max-width: 115px; /* Reduced */
           }
         }
         
@@ -177,7 +177,7 @@ export default function Header() {
           }
           
           .mobile-nav-toggler .site-ligo img {
-            max-height: 35px;
+            max-height: 35px; /* Back to original size */
           }
           
           .mobile-nav-toggler .fas.fa-bars {
@@ -208,7 +208,7 @@ export default function Header() {
           .btn-box .thm-btn {
             width: 110px;
             height: 34px;
-            font-size: 0.7rem;
+            font-size: 0.6rem; /* Reduced from 0.7rem */
           }
           
           .btn-box .thm-btn .txt {
@@ -223,7 +223,7 @@ export default function Header() {
           }
           
           .mobile-nav-toggler .site-ligo img {
-            max-height: 30px;
+            max-height: 30px; /* Back to original size */
           }
           
           .mobile-nav-toggler .fas.fa-bars {
@@ -249,7 +249,7 @@ export default function Header() {
           .btn-box .thm-btn {
             width: 100px;
             height: 32px;
-            font-size: 0.65rem;
+            font-size: 0.55rem; /* Reduced from 0.65rem */
           }
           
           .btn-box .thm-btn .txt {
@@ -259,6 +259,10 @@ export default function Header() {
         
         /* Extra small screens */
         @media (max-width: 480px) {
+          .mobile-nav-toggler .site-ligo img {
+            max-height: 35px; /* Moderate increase from original small size */
+          }
+          
           .btn-box {
             min-width: 90px;
           }
@@ -266,7 +270,7 @@ export default function Header() {
           .btn-box .thm-btn {
             width: 90px;
             height: 30px;
-            font-size: 0.6rem;
+            font-size: 0.5rem; /* Reduced from 0.6rem */
           }
           
           .btn-box .thm-btn .txt {
@@ -285,7 +289,7 @@ export default function Header() {
           }
           
           .main-header-one__bottom-left .site-ligo img {
-            max-height: 50px;
+            max-height: 50px; /* Back to original size */
             width: auto;
           }
           
@@ -294,17 +298,17 @@ export default function Header() {
           }
           
           .btn-box {
-            min-width: 140px;
+            min-width: 145px; /* Reduced */
           }
           
           .btn-box .thm-btn {
-            width: 140px;
+            width: 145px; /* Reduced */
             height: 40px;
-            font-size: 0.85rem;
+            font-size: 0.73rem;
           }
           
           .btn-box .thm-btn .txt {
-            max-width: 130px;
+            max-width: 135px; /* Reduced */
           }
         }
         
@@ -322,18 +326,22 @@ export default function Header() {
             gap: 2rem;
           }
           
+          .main-header-one__bottom-left .site-ligo img {
+            max-height: 50px; /* Keep consistent with desktop */
+          }
+          
           .btn-box {
-            min-width: 150px;
+            min-width: 155px; /* Reduced */
           }
           
           .btn-box .thm-btn {
-            width: 150px;
+            width: 155px; /* Reduced */
             height: 42px;
-            font-size: 0.9rem;
+            font-size: 0.78rem;
           }
           
           .btn-box .thm-btn .txt {
-            max-width: 140px;
+            max-width: 145px; /* Reduced */
           }
         }
         
@@ -352,22 +360,30 @@ export default function Header() {
           background: white;
         }
         
+        .sticky-menu .mobile-nav-toggler .site-ligo img {
+          max-height: 35px; /* Back to reasonable sticky size */
+        }
+        
         .sticky-menu .main-header-one__bottom {
           padding: 0.75rem 2rem;
         }
         
+        .sticky-menu .main-header-one__bottom-left .site-ligo img {
+          max-height: 40px; /* Back to reasonable sticky size */
+        }
+        
         .sticky-menu .btn-box {
-          min-width: 130px;
+          min-width: 135px; /* Reduced */
         }
         
         .sticky-menu .btn-box .thm-btn {
-          width: 130px;
+          width: 135px; /* Reduced */
           height: 36px;
-          font-size: 0.8rem;
+          font-size: 0.68rem;
         }
         
         .sticky-menu .btn-box .thm-btn .txt {
-          max-width: 120px;
+          max-width: 125px; /* Reduced */
         }
         
         /* Container responsive */
@@ -507,7 +523,7 @@ export default function Header() {
                             </div>
                             <div className="btn-box">
                               <Link className="thm-btn" to="/contact">
-                                <span className="txt">Get a free Demo</span>
+                                <span className="txt">Get free Demo</span>
                               </Link>
                             </div>
                           </div>

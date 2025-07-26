@@ -1,38 +1,11 @@
+// ServiceStyle2.js - Fixed FeatureCard Component
 import ServiceCard from "../../ui/cards/ServiceCard";
 import AutomationFeatures from "../automationFeatures/AutomationFeatures";
 import { useEffect } from "react";
 
 const FeatureCard = ({ text }) => (
   <div className="col-sm-6 col-12">
-    <div
-      style={{
-        background: "linear-gradient(135deg, #00c853, #43a047)",
-        color: "white",
-        padding: "15px 20px",
-        borderRadius: "16px",
-        fontWeight: 500,
-        fontSize: "18px",
-        textAlign: "center",
-        transition: "box-shadow 0.3s ease, filter 0.3s ease",
-        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-        cursor: "pointer",
-        minHeight: "110px", // Changed from height to minHeight
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "visible", // Allow content to be visible
-        wordWrap: "break-word",
-        hyphens: "auto",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = "0 0 20px rgba(0, 255, 100, 0.6)";
-        e.currentTarget.style.filter = "brightness(1.1)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.1)";
-        e.currentTarget.style.filter = "brightness(1)";
-      }}
-    >
+    <div className="feature-card">
       {text}
     </div>
   </div>
@@ -79,17 +52,6 @@ export default function ServiceStyle2({ data }) {
   // Remove the blue AI-POWERED SOLUTION box after component mounts
   useEffect(() => {
     const removeBlueBox = () => {
-      // Try multiple selectors to find and hide the blue box
-      const selectors = [
-        '[style*="AI-POWERED SOLUTION"]',
-        'div:contains("AI-POWERED SOLUTION")',
-        '[class*="ai-powered"]',
-        '[class*="solution"]',
-        'div[style*="linear-gradient"][style*="blue"]',
-        'div[style*="background"]'
-      ];
-
-      // Search for elements containing the text
       const allElements = document.querySelectorAll('*');
       allElements.forEach(element => {
         if (element.textContent && element.textContent.includes('AI-POWERED SOLUTION')) {
@@ -100,23 +62,13 @@ export default function ServiceStyle2({ data }) {
           element.style.overflow = 'hidden !important';
         }
       });
-
-      // Also try to find elements with blue gradient backgrounds
-      const gradientElements = document.querySelectorAll('[style*="linear-gradient"]');
-      gradientElements.forEach(element => {
-        if (element.textContent && element.textContent.includes('AI-POWERED SOLUTION')) {
-          element.style.display = 'none !important';
-        }
-      });
     };
 
-    // Run immediately and after a delay
     removeBlueBox();
     setTimeout(removeBlueBox, 100);
     setTimeout(removeBlueBox, 500);
     setTimeout(removeBlueBox, 1000);
 
-    // Set up a mutation observer to catch dynamically added elements
     const observer = new MutationObserver(removeBlueBox);
     observer.observe(document.body, { childList: true, subtree: true });
 
@@ -126,373 +78,90 @@ export default function ServiceStyle2({ data }) {
   return (
     <section className="service-sec2 sec-ptb">
       <style>{`
+        /* Feature Card Base Styles */
+        .feature-card {
+          background: linear-gradient(135deg, #00c853, #43a047);
+          color: white;
+          padding: 20px;
+          border-radius: 16px;
+          font-weight: 500;
+          font-size: 16px;
+          text-align: center;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          min-height: 120px;
+          height: 120px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          word-wrap: break-word;
+          hyphens: auto;
+          line-height: 1.4;
+          border: 2px solid transparent;
+          position: relative;
+        }
+
+        .feature-card:hover {
+          box-shadow: 0 8px 25px rgba(0, 200, 83, 0.3);
+          filter: brightness(1.05);
+          transform: translateY(-2px);
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Feature Card Container */
+        .feature-card-container {
+          margin-bottom: 2.5rem;
+        }
+
+        .feature-card-container .row {
+          margin-left: -8px;
+          margin-right: -8px;
+        }
+
+        .feature-card-container .col-sm-6,
+        .feature-card-container .col-12 {
+          padding-left: 8px;
+          padding-right: 8px;
+          margin-bottom: 16px;
+          display: flex;
+        }
+
+        /* App Section Styles */
         .app-sections {
-          margin-top: 3rem !important;
+          margin-top: 3rem;
         }
 
         .app-section-title {
-          font-size: 2rem !important;
-          margin-bottom: 1rem !important;
-          color: #000000 !important;
+          font-size: 2.2rem;
+          margin-bottom: 1.2rem;
+          color: #1a1a1a;
+          font-weight: 700;
         }
 
-        .app-section-title .text-primary {
-          color: #000000 !important;
-        }
-
-        .app-section-title .text-success {
-          color: #000000 !important;
-        }
-
-        .app-section-title .text-warning {
-          color: #000000 !important;
-        }
-
-        .app-section-title .text-dark {
-          color: #000000 !important;
-        }
+        .app-section-title .text-primary { color: #007bff !important; }
+        .app-section-title .text-success { color: #28a745 !important; }
+        .app-section-title .text-warning { color: #ffc107 !important; }
+        .app-section-title .text-dark { color: #343a40 !important; }
 
         .app-section-description {
-          margin-bottom: 1.5rem !important;
-          font-size: 1.1rem !important;
-          color: #000000 !important;
+          margin-bottom: 2rem;
+          font-size: 1.1rem;
+          color: #6c757d;
+          line-height: 1.6;
         }
 
-        .feature-card-container {
-          margin-bottom: 2rem !important;
-        }
-
-        /* Fixed feature card styling to prevent content hiding */
-        .feature-card-container .col-sm-6,
-        .feature-card-container .col-12 {
-          margin-bottom: 15px !important;
-          padding-left: 7.5px !important;
-          padding-right: 7.5px !important;
-        }
-
-        .feature-card-container .col-sm-6 > div,
-        .feature-card-container .col-12 > div {
-          min-height: 110px !important;
-          height: auto !important; /* Allow dynamic height */
-          padding: 15px 20px !important;
-          font-size: 16px !important;
-          line-height: 1.3 !important;
-          word-wrap: break-word !important;
-          hyphens: auto !important;
-          overflow: visible !important; /* Ensure content is visible */
-          white-space: normal !important;
-          text-overflow: visible !important;
-        }
-
+        /* Video Styles */
         .video-responsive {
-          max-width: 100% !important;
-          height: auto !important;
-          border-radius: 12px !important;
-          box-shadow: none !important;
-          background: transparent !important;
+          max-width: 100%;
+          height: auto;
+          border-radius: 12px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          background: transparent;
         }
 
-        .sec-title {
-          color: #000000 !important;
-        }
-
-        .sec-sub-title {
-          color: #000000 !important;
-        }
-
-        /* Automation Section Styles */
-        .automation-section {
-          margin-top: 4rem !important;
-          text-align: center !important;
-        }
-
-        /* Hide the blue AI-POWERED SOLUTION box */
-        .automation-section .ai-powered-badge,
-        .automation-section [style*="linear-gradient"][style*="3b82f6"],
-        .automation-section *:contains("AI-POWERED SOLUTION") {
-          display: none !important;
-        }
-        
-        /* More specific selectors to hide the blue box */
-        .automation-section div[style*="background"] div:contains("AI-POWERED SOLUTION"),
-        .automation-section .badge,
-        .automation-section .ai-solution-badge {
-          display: none !important;
-        }
-        
-        /* Target any element with blue gradient and "SOLUTION" text */
-        .automation-section div {
-          &:has-text("AI-POWERED SOLUTION") {
-            display: none !important;
-          }
-        }
-
-        .automation-title {
-          font-size: 2.5rem !important;
-          font-weight: bold !important;
-          margin-bottom: 1rem !important;
-          color: #000000 !important;
-        }
-
-        .automation-title .automation-text {
-          color: #000000 !important;
-        }
-
-        .automation-subtitle {
-          font-size: 1.2rem !important;
-          margin-bottom: 2rem !important;
-          color: #666666 !important;
-          max-width: 800px !important;
-          margin-left: auto !important;
-          margin-right: auto !important;
-        }
-
-        /* Mobile Styles */
-        @media (max-width: 576px) {
-          .service-sec2 {
-            padding: 40px 0 !important;
-          }
-
-          .sec-title {
-            font-size: 1.8rem !important;
-            line-height: 1.3 !important;
-            color: #000000 !important;
-          }
-
-          .sec-sub-title {
-            font-size: 0.9rem !important;
-            color: #000000 !important;
-          }
-
-          .app-sections {
-            margin-top: 2rem !important;
-          }
-
-          .app-section-title {
-            font-size: 1.5rem !important;
-            margin-bottom: 0.8rem !important;
-            color: #000000 !important;
-          }
-
-          .app-section-title .text-primary,
-          .app-section-title .text-success,
-          .app-section-title .text-warning,
-          .app-section-title .text-dark {
-            color: #000000 !important;
-          }
-
-          .app-section-description {
-            font-size: 0.95rem !important;
-            margin-bottom: 1.2rem !important;
-            padding: 0 10px !important;
-            color: #000000 !important;
-          }
-
-          .feature-card-container {
-            margin-bottom: 1.5rem !important;
-          }
-
-          /* Force single column layout on mobile */
-          .feature-card-container .col-sm-6,
-          .feature-card-container .col-12 {
-            flex: 0 0 100% !important;
-            max-width: 100% !important;
-            margin-bottom: 10px !important;
-            padding-left: 10px !important;
-            padding-right: 10px !important;
-          }
-
-          /* Better card styling for mobile - FIXED */
-          .feature-card-container .col-sm-6 > div,
-          .feature-card-container .col-12 > div {
-            min-height: 80px !important;
-            height: auto !important; /* Allow content to expand */
-            padding: 12px 15px !important;
-            font-size: 14px !important;
-            border-radius: 12px !important;
-            line-height: 1.25 !important;
-            font-weight: 500 !important;
-            word-wrap: break-word !important;
-            hyphens: auto !important;
-            text-align: center !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            background: linear-gradient(135deg, #00c853, #43a047) !important;
-            color: white !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-            transition: all 0.3s ease !important;
-            overflow: visible !important; /* Key fix */
-            white-space: normal !important; /* Allow wrapping */
-            text-overflow: visible !important;
-          }
-
-          .row.align-items-center {
-            margin-bottom: 2.5rem !important;
-          }
-
-          .video-responsive {
-            margin-top: 15px !important;
-            border-radius: 8px !important;
-            box-shadow: none !important;
-            background: transparent !important;
-          }
-
-          /* Stack video above content on mobile */
-          .flex-md-row-reverse {
-            flex-direction: column !important;
-          }
-
-          .flex-md-row-reverse .col-md-6:first-child {
-            order: 2 !important;
-          }
-
-          .flex-md-row-reverse .col-md-6:last-child {
-            order: 1 !important;
-            margin-bottom: 20px !important;
-          }
-
-          /* Remove hover effects on mobile */
-          .feature-card-container .col-sm-6 > div:hover,
-          .feature-card-container .col-12 > div:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-            filter: brightness(1) !important;
-          }
-
-          /* Automation section mobile styles */
-          .automation-title {
-            font-size: 1.8rem !important;
-          }
-
-          .automation-subtitle {
-            font-size: 1rem !important;
-            padding: 0 15px !important;
-          }
-        }
-
-        /* Tablet Styles */
-        @media (min-width: 577px) and (max-width: 768px) {
-          .app-section-title {
-            font-size: 1.8rem !important;
-            color: #000000 !important;
-          }
-
-          .app-section-title .text-primary,
-          .app-section-title .text-success,
-          .app-section-title .text-warning,
-          .app-section-title .text-dark {
-            color: #000000 !important;
-          }
-
-          .app-section-description {
-            color: #000000 !important;
-          }
-
-          .feature-card-container .col-sm-6 {
-            margin-bottom: 15px !important;
-          }
-
-          .feature-card-container .col-sm-6 > div,
-          .feature-card-container .col-12 > div {
-            min-height: 95px !important;
-            height: auto !important; /* Allow dynamic height */
-            font-size: 16px !important;
-            padding: 12px 15px !important;
-            overflow: visible !important;
-            white-space: normal !important;
-          }
-
-          .row.align-items-center {
-            margin-bottom: 3.5rem !important;
-          }
-
-          .video-responsive {
-            box-shadow: none !important;
-            background: transparent !important;
-          }
-
-          .automation-title {
-            font-size: 2.2rem !important;
-          }
-
-          .automation-subtitle {
-            font-size: 1.1rem !important;
-          }
-        }
-
-        /* Medium Tablet */
-        @media (min-width: 769px) and (max-width: 992px) {
-          .app-section-title {
-            font-size: 1.9rem !important;
-            color: #000000 !important;
-          }
-
-          .app-section-title .text-primary,
-          .app-section-title .text-success,
-          .app-section-title .text-warning,
-          .app-section-title .text-dark {
-            color: #000000 !important;
-          }
-
-          .app-section-description {
-            color: #000000 !important;
-          }
-
-          .feature-card-container .col-sm-6 > div,
-          .feature-card-container .col-12 > div {
-            min-height: 105px !important;
-            height: auto !important;
-            font-size: 18px !important;
-            overflow: visible !important;
-            white-space: normal !important;
-          }
-
-          .video-responsive {
-            box-shadow: none !important;
-            background: transparent !important;
-          }
-        }
-
-        /* Desktop */
-        @media (min-width: 993px) {
-          .app-section-title {
-            color: #000000 !important;
-          }
-
-          .app-section-title .text-primary,
-          .app-section-title .text-success,
-          .app-section-title .text-warning,
-          .app-section-title .text-dark {
-            color: #000000 !important;
-          }
-
-          .app-section-description {
-            color: #000000 !important;
-          }
-
-          .feature-card-container .col-sm-6 > div,
-          .feature-card-container .col-12 > div {
-            overflow: visible !important;
-            white-space: normal !important;
-            height: auto !important;
-            min-height: 110px !important;
-          }
-
-          .video-responsive {
-            box-shadow: none !important;
-            background: transparent !important;
-          }
-        }
-
-        /* Touch devices - remove hover effects */
-        @media (hover: none) {
-          .feature-card-container > div > div:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-            filter: brightness(1) !important;
-          }
-        }
-
-        /* Ensure proper spacing for all sections */
+        /* Section Spacing */
         .row.align-items-center {
           margin-bottom: 4rem;
         }
@@ -500,18 +169,193 @@ export default function ServiceStyle2({ data }) {
         .row.align-items-center:last-child {
           margin-bottom: 2rem;
         }
-      `}</style>
-      <div className="container">
-        {/* Header */}
-        {/* <div className="row">
-          <div className="offset-lg-3 col-lg-6">
-            <div className="sec-content text-center mb-5">
-              <h6 className="sec-sub-title">What We Do</h6>
-              <h2 className="sec-title">Services That Help You Grow</h2>
-            </div>
-          </div>
-        </div> */}
 
+        /* Automation Section */
+        .automation-section {
+          margin-top: 4rem;
+          text-align: center;
+        }
+
+        .automation-title {
+          font-size: 2.5rem;
+          font-weight: bold;
+          margin-bottom: 1rem;
+          color: #1a1a1a;
+        }
+
+        .automation-subtitle {
+          font-size: 1.2rem;
+          margin-bottom: 2rem;
+          color: #6c757d;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+          line-height: 1.6;
+        }
+
+        /* Mobile Styles - 576px and below */
+        @media (max-width: 576px) {
+          .service-sec2 {
+            padding: 40px 0;
+          }
+
+          .app-sections {
+            margin-top: 2rem;
+          }
+
+          .app-section-title {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+          }
+
+          .app-section-description {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 0 10px;
+          }
+
+          .feature-card-container {
+            margin-bottom: 2rem;
+          }
+
+          .feature-card-container .col-sm-6,
+          .feature-card-container .col-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 12px;
+            padding-left: 5px;
+            padding-right: 5px;
+          }
+
+          .feature-card {
+            min-height: 100px;
+            height: auto;
+            padding: 16px;
+            font-size: 14px;
+            line-height: 1.3;
+            border-radius: 12px;
+          }
+
+          .row.align-items-center {
+            margin-bottom: 2.5rem;
+          }
+
+          .video-responsive {
+            margin-top: 15px;
+            border-radius: 8px;
+          }
+
+          /* Stack video above content on mobile */
+          .flex-md-row-reverse {
+            flex-direction: column;
+          }
+
+          .flex-md-row-reverse .col-md-6:first-child {
+            order: 2;
+          }
+
+          .flex-md-row-reverse .col-md-6:last-child {
+            order: 1;
+            margin-bottom: 20px;
+          }
+
+          /* Remove hover effects on mobile */
+          .feature-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            filter: brightness(1);
+            transform: none;
+          }
+
+          .automation-title {
+            font-size: 1.8rem;
+          }
+
+          .automation-subtitle {
+            font-size: 1rem;
+            padding: 0 15px;
+          }
+        }
+
+        /* Tablet Styles - 577px to 768px */
+        @media (min-width: 577px) and (max-width: 768px) {
+          .app-section-title {
+            font-size: 1.9rem;
+          }
+
+          .app-section-description {
+            font-size: 1.05rem;
+          }
+
+          .feature-card-container .col-sm-6 {
+            margin-bottom: 15px;
+          }
+
+          .feature-card {
+            min-height: 110px;
+            height: 110px;
+            font-size: 15px;
+            padding: 18px;
+          }
+
+          .row.align-items-center {
+            margin-bottom: 3.5rem;
+          }
+
+          .automation-title {
+            font-size: 2.2rem;
+          }
+
+          .automation-subtitle {
+            font-size: 1.1rem;
+          }
+        }
+
+        /* Medium Tablet - 769px to 992px */
+        @media (min-width: 769px) and (max-width: 992px) {
+          .app-section-title {
+            font-size: 2rem;
+          }
+
+          .feature-card {
+            min-height: 115px;
+            height: 115px;
+            font-size: 16px;
+          }
+        }
+
+        /* Desktop - 993px and up */
+        @media (min-width: 993px) {
+          .feature-card {
+            min-height: 120px;
+            height: 120px;
+            font-size: 16px;
+          }
+        }
+
+        /* Touch devices - remove hover effects */
+        @media (hover: none) {
+          .feature-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            filter: brightness(1);
+            transform: none;
+            border-color: transparent;
+          }
+        }
+
+        /* Ensure equal height cards in each row */
+        .feature-card-container .row {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: stretch;
+        }
+
+        .feature-card-container .col-sm-6 {
+          display: flex;
+          align-items: stretch;
+        }
+      `}</style>
+
+      <div className="container">
         {/* Main Service Cards */}
         <div className="row">
           {data?.map((item, i) => (
@@ -523,7 +367,6 @@ export default function ServiceStyle2({ data }) {
 
         {/* App Sections */}
         <div className="app-sections">
-
           {/* Worker App */}
           <div className="row align-items-center">
             <div className="col-md-6">
@@ -533,10 +376,12 @@ export default function ServiceStyle2({ data }) {
               <p className="text-center app-section-description">
                 Bridges the gap between field and office with seamless communication.
               </p>
-              <div className="row g-3 feature-card-container">
-                {workerFeatures.map((text, i) => (
-                  <FeatureCard key={i} text={text} />
-                ))}
+              <div className="feature-card-container">
+                <div className="row">
+                  {workerFeatures.map((text, i) => (
+                    <FeatureCard key={i} text={text} />
+                  ))}
+                </div>
               </div>
             </div>
             <div className="col-md-6 text-center">
@@ -560,10 +405,12 @@ export default function ServiceStyle2({ data }) {
               <p className="text-center app-section-description">
                 A time-saver, problem-solver, and performance-booster app.
               </p>
-              <div className="row g-3 feature-card-container">
-                {supervisorFeatures.map((text, i) => (
-                  <FeatureCard key={i} text={text} />
-                ))}
+              <div className="feature-card-container">
+                <div className="row">
+                  {supervisorFeatures.map((text, i) => (
+                    <FeatureCard key={i} text={text} />
+                  ))}
+                </div>
               </div>
             </div>
             <div className="col-md-6 text-center">
@@ -587,10 +434,12 @@ export default function ServiceStyle2({ data }) {
               <p className="text-center app-section-description">
                 Empowers clients with transparency, service ratings, and tracking.
               </p>
-              <div className="row g-3 feature-card-container">
-                {clientFeatures.map((text, i) => (
-                  <FeatureCard key={i} text={text} />
-                ))}
+              <div className="feature-card-container">
+                <div className="row">
+                  {clientFeatures.map((text, i) => (
+                    <FeatureCard key={i} text={text} />
+                  ))}
+                </div>
               </div>
             </div>
             <div className="col-md-6 text-center">
@@ -614,10 +463,12 @@ export default function ServiceStyle2({ data }) {
               <p className="text-center app-section-description">
                 A centralized control center for your organization's performance.
               </p>
-              <div className="row g-3 feature-card-container">
-                {adminFeatures.map((text, i) => (
-                  <FeatureCard key={i} text={text} />
-                ))}
+              <div className="feature-card-container">
+                <div className="row">
+                  {adminFeatures.map((text, i) => (
+                    <FeatureCard key={i} text={text} />
+                  ))}
+                </div>
               </div>
             </div>
             <div className="col-md-6 text-center">
@@ -642,10 +493,12 @@ export default function ServiceStyle2({ data }) {
               <p className="text-center app-section-description">
                 Simplifies feedback, support requests, and service transparency for users.
               </p>
-              <div className="row g-3 feature-card-container">
-                {endUserFeatures.map((text, i) => (
-                  <FeatureCard key={i} text={text} />
-                ))}
+              <div className="feature-card-container">
+                <div className="row">
+                  {endUserFeatures.map((text, i) => (
+                    <FeatureCard key={i} text={text} />
+                  ))}
+                </div>
               </div>
             </div>
             <div className="col-md-6 text-center">

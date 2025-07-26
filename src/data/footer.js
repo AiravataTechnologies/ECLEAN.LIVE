@@ -19,51 +19,55 @@ export const social_links = [
 
 export const service_links = [
     {
-        name: "Tech Solutions",
-        url: "/service-details",
+        name: "AI Hygiene Monitor",
+        url: "/services",
     },
     {
-        name: " Digital Marketing",
-        url: "/service-details",
+        name: "Service Automation",
+        url: "/services",
     },
     {
-        name: "Web Development",
-        url: "/service-details",
+        name: "Geo Attendance",
+        url: "/services",
     },
     {
-        name: "IT Consulting",
-        url: "/service-details",
+        name: "QR Feedback",
+        url: "/services",
     },
     {
-        name: "Data Analytics",
-        url: "/service-details",
+        name: "Workforce App",
+        url: "/services",
+    },
+    {
+        name: "Client Insights",
+        url: "/services",
     },
 ];
 
 export const useful_links = [
     {
-        name: "What We Do",
+        name: "Home",
+        url: "/#",
+    },
+    {
+        name: "About",
         url: "/about",
     },
     {
-        name: "Our Team",
-        url: "/team",
+        name: "Features",
+        url: "/services",
     },
     {
-        name: "Our Projects",
-        url: "/projects",
-    },
-    {
-        name: "Faq ask",
+        name: "FAQ",
         url: "/faqs",
-    },
-    {
-        name: "Contact Us",
-        url: "/contact",
     },
     {
         name: "Blog",
         url: "/blog",
+    },
+    {
+        name: "Contact Us",
+        url: "/contact",
     },
 ];
 

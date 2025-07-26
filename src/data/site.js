@@ -3,29 +3,25 @@ export const services = [
         icon: "flaticon-automation",
         image: "https://cdn-icons-png.flaticon.com/512/4712/4712027.png", // Automated scheduling image
         title: "Automated Task Scheduling",
-        brief: "Intelligent scheduling system that optimizes workforce allocation and task distribution automatically.",
-        url: "/service-details"
+        brief: "Intelligent scheduling system that optimizes workforce allocation and task distribution automatically."
     },
     {
         icon: "flaticon-real-time",
         image: "https://cdn-icons-png.flaticon.com/512/4149/4149643.png", // Live tracking image
         title: "Live Performance Tracking",
-        brief: "Monitor cleaning progress, quality metrics, and compliance status in real-time across all locations.",
-        url: "/service-details"
+        brief: "Monitor cleaning progress, quality metrics, and compliance status in real-time across all locations."
     },
     {
         icon: "flaticon-qr-code",
         image: "https://cdn-icons-png.flaticon.com/512/2919/2919594.png", // QR verification image
         title: "QR-Based Verification System",
-        brief: "Instant photo verification and feedback collection through QR codes at every cleaning checkpoint.",
-        url: "/service-details"
+        brief: "Instant photo verification and feedback collection through QR codes at every cleaning checkpoint."
     },
     {
         icon: "flaticon-geolocation",
         image: "https://cdn-icons-png.flaticon.com/512/684/684908.png", // Geo-attendance image
         title: "Geo-Attendance & Location Tracking",
-        brief: "GPS-enabled attendance tracking and location-based job scheduling for maximum accountability.",
-        url: "/service-details"
+        brief: "GPS-enabled attendance tracking and location-based job scheduling for maximum accountability."
     }
 ];
 
@@ -61,7 +57,6 @@ export const services_2 = [
         brief: "Track performance, tickets, and history with live dashboards.",
     }
 ];
-
 
 export const services_3 = [
     {
@@ -345,34 +340,20 @@ export const blogs_2 = [
 
 export const teams = [
     {
-        title: "Emily Johnson",
-        category: "AI Solutions Architect",
+        title: "Darshan Gesota",
         imgUrl: "/images/team/team1.png",
     },
     {
-        title: "Michael Torres",
-        category: "Facility Operations Expert",
+        title: "Balachandran Unni",
         imgUrl: "/images/team/team2.png",
     },
     {
-        title: "Sarah Williams",
-        category: "Mobile App Developer",
+        title: "Prachi Gawad",
         imgUrl: "/images/team/team3.png",
     },
     {
-        title: "Daniel Kim",
-        category: "Quality Assurance Specialist",
+        title: "P. Ravindran",
         imgUrl: "/images/team/team4.png",
-    },
-    {
-        title: "Alexandra Chen",
-        category: "Co-Founder & CTO",
-        imgUrl: "/images/team/team5.png",
-    },
-    {
-        title: "Marcus Thompson",
-        category: "Platform Engineer",
-        imgUrl: "/images/team/team6.png",
     },
 ];
 
@@ -401,27 +382,21 @@ export const faq = [
 
 export const service_list = [
     {
-        name: "Smart Facility Management",
-        url: "/service-details",
+        name: "Smart Facility Management"
     },
     {
-        name: "Quality Assurance Systems",
-        url: "/service-details",
+        name: "Quality Assurance Systems"
     },
     {
-        name: "Mobile Workforce Apps",
-        url: "/service-details",
+        name: "Mobile Workforce Apps"
     },
     {
-        name: "Performance Analytics",
-        url: "/service-details",
+        name: "Performance Analytics"
     },
     {
-        name: "Client Communication Portal",
-        url: "/service-details",
+        name: "Client Communication Portal"
     },
     {
-        name: "Compliance Monitoring",
-        url: "/service-details",
+        name: "Compliance Monitoring"
     },
 ];

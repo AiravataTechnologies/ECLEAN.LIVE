@@ -28,8 +28,8 @@ export default function Footer() {
                 </div>
                 <div className="footer-widget-content">
                   <p className="ft-text" style={{ color: '#333' }}>
-                    Revolutionizing the hygiene and cleaning industry with AI-powered solutions. 
-                    Smart scheduling, predictive maintenance, and automated quality control 
+                    Revolutionizing the hygiene and cleaning industry with AI-powered solutions.
+                    Smart scheduling, predictive maintenance, and automated quality control
                     for optimal cleanliness standards.
                   </p>
                   <div className="footer-social">
@@ -48,7 +48,7 @@ export default function Footer() {
             </div>
             <div className="col-sm-6 offset-xl-1 col-xl-2">
               <div className="footer-widget">
-                <h4 className="footer-widget-title" style={{ color: '#1e40af' }}>Our Services</h4>
+                <h4 className="footer-widget-title" style={{ color: '#1e40af' }}>Our Features</h4>
                 <div className="footer-widget-content">
                   <div className="footer-links">
                     <ul>

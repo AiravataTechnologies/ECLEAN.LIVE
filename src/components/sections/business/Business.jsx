@@ -196,6 +196,11 @@ export default function Business() {
       </div>
 
       <style>{`
+        /* Reduced section padding */
+        .business-sec {
+          padding: 40px 0 !important;
+        }
+        
         .business-opacity-0 {
           opacity: 0;
         }
@@ -206,7 +211,7 @@ export default function Business() {
           font-weight: 600 !important;
           text-transform: uppercase !important;
           letter-spacing: 1px !important;
-          margin-bottom: 15px !important;
+          margin-bottom: 10px !important;
         }
         
         /* Override any existing styles that might conflict */
@@ -247,7 +252,7 @@ export default function Business() {
         }
         
         .ab-progress {
-          margin-bottom: 20px;
+          margin-bottom: 15px;
         }
         
         .ui-progressbar {
@@ -256,13 +261,13 @@ export default function Business() {
         
         .sec-images {
           height: 100%;
-          min-height: 400px;
+          min-height: 280px;
         }
         
         .business-sec-img-main {
           width: 100%;
-          max-width: 450px;
-          height: 400px;
+          max-width: 350px;
+          height: 280px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -276,7 +281,7 @@ export default function Business() {
         
         .business-content-section {
           text-align: justify;
-          line-height: 1.6;
+          line-height: 1.5;
           width: 100%;
           max-width: 100%;
           padding-right: 15px;
@@ -284,9 +289,9 @@ export default function Business() {
         
         .business-content-section .business-sec-title {
           text-align: left;
-          line-height: 1.3;
-          margin-bottom: 25px;
-          font-size: clamp(1.8rem, 4vw, 2.5rem);
+          line-height: 1.2;
+          margin-bottom: 15px;
+          font-size: clamp(1.6rem, 4vw, 2.2rem);
           font-weight: bold;
           color: #333;
           word-wrap: break-word;
@@ -296,9 +301,9 @@ export default function Business() {
         
         .business-content-section .business-sec-text {
           text-align: justify;
-          line-height: 1.6;
-          margin: 0 0 30px 0;
-          font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+          line-height: 1.5;
+          margin: 0 0 20px 0;
+          font-size: clamp(0.9rem, 2.5vw, 1rem);
           color: #666;
         }
         
@@ -318,65 +323,94 @@ export default function Business() {
         }
         
         @media (max-width: 991px) {
+          .business-sec {
+            padding: 30px 0 !important;
+          }
+          
           .business-sec-img-main {
-            max-width: 350px;
-            height: 300px;
-            margin: 30px auto;
+            max-width: 280px;
+            height: 220px;
+            margin: 20px auto;
           }
           
           .business-content-section {
             padding-right: 0;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
           }
           
           .business-content-section .business-sec-title {
-            font-size: clamp(1.6rem, 5vw, 2.2rem);
+            font-size: clamp(1.4rem, 5vw, 1.9rem);
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
           }
           
           .business-content-section .business-sec-text {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
           }
           
           /* Center align Smart Solutions subtitle in mobile */
           .business-orange-subtitle {
             text-align: center !important;
           }
+          
+          .sec-images {
+            min-height: 220px;
+          }
         }
         
         @media (max-width: 767px) {
+          .business-sec {
+            padding: 25px 0 !important;
+          }
+          
           .business-sec-img-main {
-            max-width: 280px;
-            height: 250px;
+            max-width: 240px;
+            height: 180px;
           }
           
           .business-content-section .business-sec-title {
-            font-size: clamp(1.4rem, 6vw, 1.9rem);
-            line-height: 1.2;
-            margin-bottom: 15px;
+            font-size: clamp(1.3rem, 6vw, 1.7rem);
+            line-height: 1.1;
+            margin-bottom: 10px;
           }
           
           .business-content-section .business-sec-text {
-            font-size: clamp(0.9rem, 3vw, 1rem);
-            margin-bottom: 20px;
+            font-size: clamp(0.85rem, 3vw, 0.95rem);
+            margin-bottom: 15px;
           }
           
           .ab-progress {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+          }
+          
+          .sec-images {
+            min-height: 180px;
           }
         }
         
         @media (max-width: 576px) {
+          .business-sec {
+            padding: 20px 0 !important;
+          }
+          
           .business-content-section .business-sec-title {
-            font-size: clamp(1.2rem, 7vw, 1.6rem);
+            font-size: clamp(1.1rem, 7vw, 1.4rem);
             line-height: 1.1;
             word-break: break-word;
           }
           
           .business-content-section {
             padding: 0 10px;
+          }
+          
+          .business-sec-img-main {
+            max-width: 200px;
+            height: 160px;
+          }
+          
+          .sec-images {
+            min-height: 160px;
           }
         }
       `}</style>

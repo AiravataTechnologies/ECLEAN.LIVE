@@ -8,7 +8,7 @@ export default [
     url: "/about",
   },
   {
-    name: "Services",
+    name: "Features",
     url: "/services",
   },
   {
